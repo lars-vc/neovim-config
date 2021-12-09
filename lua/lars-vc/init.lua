@@ -1,0 +1,1 @@
+require('lars-vc/telescope')
