@@ -1,7 +1,7 @@
 " lars-vc's config file
 "    ___  __  ________  ________   ___    ___    _   ________ 
 "  ╱╱   ╲╱  ╲╱    __  ╲╱   ___  ╲ ╱   ╲  ╱   ╲  ╱_╱ ╱        ╲
-" ╱╱        ╱    __╱  ╱      ╱  ╱ ╲    ╲╱    ╱____ ╱         ╱
+" ╱╱        ╱    __╱  ╱      ╱  ╱ ╲    ╲╱    ╱___  ╱         ╱
 "╱         ╱     ____╱   ___╱  ╱   ╲        ╱╱   ╱╱   ╱  ╱  ╱ 
 "╲__╱╲____╱╲________╱╲________╱     ╲______╱╱___╱ ╲__╱__╱__╱  
 
@@ -14,6 +14,7 @@ syntax on
 set termguicolors
 " number of spaces in a <Tab>
 set tabstop=4
+set shiftwidth=4
 set softtabstop=4
 set expandtab
 " enable autoindents
@@ -26,9 +27,10 @@ set numberwidth=4
 " highlights the matched text pattern when searching
 set incsearch
 set nohlsearch
+set noea
 " open splits intuitively
-set splitbelow
-set splitright
+" set splitbelow
+" set splitright
 " navigate buffers without losing unsaved work
 set hidden
 " start scrolling when 8 lines from top or bottom
@@ -51,14 +53,7 @@ inoremap jk <Esc>
 inoremap <expr> <C-j> pumvisible() ? "\<C-N>" : "\<C-j>"
 inoremap <expr> <C-k> pumvisible() ? "\<C-P>" : "\<C-k>"
 inoremap <expr> <Tab> pumvisible() ? "\<C-N>" : "\<Tab>"
-" From coc.nvim github
-" inoremap <silent><expr> <TAB>
-"             \ pumvisible() ? "\<C-n>" :
-"             \ <SID>check_back_space() ? "\<TAB>" :
-"             \ coc#refresh()
-
 let mapleader = ","
-noremap <C-A-l> :Autoformat<CR>
 nnoremap <F1> <C-w>w
 
 
@@ -66,74 +61,48 @@ nnoremap <F1> <C-w>w
 "--------------------------Plugins--------------------------
 "===========================================================
 call plug#begin('~/.config/nvim/plugged')
-" plugins will go here
-
-" Theme
+" --Theme--
 Plug 'marko-cerovac/material.nvim'
-
-" Telescope requires plenary to function
+" --Telescope--
 Plug 'nvim-lua/plenary.nvim'
-" The main Telescope plugin
 Plug 'nvim-telescope/telescope.nvim'
-" An optional plugin recommended by Telescope docs
 Plug 'nvim-telescope/telescope-fzf-native.nvim', {'do': 'make' }
-
-" Airline statusbar
+" --Airline--
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-" Plug 'mhinz/vim-signify'
-
-" vim-fugitive
+" --Vim-Fugitive--
 Plug 'tpope/vim-fugitive'
-
-" COC
+" --COC--
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-" Nerd tree
+" --Nerd tree--
 Plug 'preservim/nerdtree'
-
-" Better scrolling
+" --Better scrolling--
 Plug 'psliwka/vim-smoothie'
-
-" RainbowBrackets
-Plug 'luochen1990/rainbow'
-" Plug 'frazrepo/vim-rainbow'
-
-" Terminal in vim
+" --RainbowBrackets--
+" Plug 'luochen1990/rainbow'
+" Plug 'p00f/nvim-ts-rainbow'
+" --Terminal--
 Plug 'voldikss/vim-floaterm'
-
-" ALE
-Plug 'dense-analysis/ale'
-
-" Auto pairs
+" --ALE--
+" Plug 'dense-analysis/ale'
+" --Auto pairs--
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
-
-" Formatting
-" Plug 'Chiel92/vim-autoformat'
-
-" Treeshitter
+" --Treeshitter--
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
-
-" Commenting (gcc)
+" --Commenting (gcc)--
 Plug 'tpope/vim-commentary'
-
-" Git stuff
+" --Git stuff--
 Plug 'airblade/vim-gitgutter'
-
-" Wakatime
+" --Wakatime--
 Plug 'wakatime/vim-wakatime'
-
-" Debugger
+" --Debugger--
 Plug 'puremourning/vimspector'
-
-" Tree icons
+" --Tree icons--
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
-
-" Tab management
+" --Tab management--
 " Plug 'vim-ctrlspace/vim-ctrlspace'
-
 call plug#end()
 
 "===========================================================
@@ -141,8 +110,9 @@ call plug#end()
 "===========================================================
 colorscheme material
 let g:material_style = 'oceanic'
-let g:rainbow_active = 1
-let g:rainbow_conf = {'guifgs': ['Yellow', 'Magenta','LightBlue']}
+" let g:rainbow_active = 1
+" let g:rainbow_conf = {'guifgs': ['Yellow', 'Magenta','LightBlue']}
+" let g:operators = ''
 " let g:rainbow_guifgs = ['Yellow', 'Magenta','LightBlue']
 " let g:rainbow_ctermfgs = ['lightblue', 'lightgreen', 'yellow', 'red', 'magenta']
 " let g:rainbow_load_separately = [[ '*.*' , [['(', ')'], ['\[', '\]'], ['{', '}']] ]]
@@ -153,6 +123,7 @@ let g:rainbow_conf = {'guifgs': ['Yellow', 'Magenta','LightBlue']}
 "===========================================================
 " Airline
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#show_splits = 0
 let g:airline_theme='deus'
 let g:airline#extensions#hunks#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
@@ -169,8 +140,10 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
 
 " Floatterm
 " Save all tabs when opening terminal
-nnoremap   <silent>   <F12>   :wa<CR>:FloatermToggle<CR> 
+nnoremap   <silent>   <F12>   :wa<CR>:FloatermToggle<CR>
 tnoremap   <silent>   <F12>   <C-\><C-n>:FloatermToggle<CR>
+let g:floaterm_height=0.95
+let g:floaterm_width=0.8
 
 " Gitgutter
 " Disable the signs on boot
@@ -178,14 +151,20 @@ tnoremap   <silent>   <F12>   <C-\><C-n>:FloatermToggle<CR>
 
 " Coc.nvim
 set cmdheight=2
-set signcolumn=number
+set signcolumn=yes
 autocmd CursorHold * silent call CocActionAsync('highlight')
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
 " Autoformatting with coc
 let g:python3_host_prog="/usr/bin/python"
 au BufWrite * :call CocAction('format')
-noremap <F3> :call CocAction('format')<CR>
+noremap <C-A-l> :call CocAction('format')<CR>
+" noremap <F3> :call CocAction('format')<CR>
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
 " Nerd tree icons
 " let g:webdevicons_conceal_nerdtree_brackets = 0
@@ -210,9 +189,38 @@ require'nvim-treesitter.configs'.setup {
     },
 }
 EOF
+    " rainbow = {
+    "         enable=true,
+    "         termcolors={
+    "             'Yellow','Magenta','LightBlue'
+    "         }
+    "     }
 
 " CtrlSpace
 " set nocompatible
 " set hidden
 " set showtabline=0
 " let g:CtrlSpaceDefaultMappingKey = "<C-space> "
+
+" Vimspector
+"let g:vimspector_sidebar_width = 33
+let g:vimspector_code_minwidth = 90
+let g:vimspector_terminal_maxwidth = 75
+let g:vimspector_terminal_minwidth = 20
+" Debug window setup
+nmap <leader>dd : call vimspector#Launch()<CR>:NERDTreeClose<CR>2<C-w>j:q<CR> 
+":resize 15<CR>
+nmap <leader>dx : call vimspector#Reset()<CR>
+nnoremap <leader>dX :call vimspector#ClearBreakpoints()<CR>
+nnoremap <S-k> :call vimspector#StepOut()<CR>
+nnoremap <S-l> :call vimspector#StepInto()<CR>
+nnoremap <S-j> :call vimspector#StepOver()<CR>
+nnoremap <leader>d_ :call vimspector#Restart()<CR>
+nnoremap <leader>dn :call vimspector#Continue()<CR>
+nnoremap <leader>drc :call vimspector#RunToCursor()<CR>
+nnoremap <leader>dh :call vimspector#ToggleBreakpoint()<CR>
+nnoremap <leader>de :call vimspector#ToggleConditionalBreakpoint()<CR>
+" for normal mode - the word under the cursor
+nmap <Leader>di <Plug>VimspectorBalloonEval
+" for visual mode, the visually selected text
+xmap <Leader>di <Plug>VimspectorBalloonEval
