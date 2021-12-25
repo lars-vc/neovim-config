@@ -55,6 +55,10 @@ inoremap <expr> <C-k> pumvisible() ? "\<C-P>" : "\<C-k>"
 inoremap <expr> <Tab> pumvisible() ? "\<C-N>" : "\<Tab>"
 let mapleader = ","
 nnoremap <F1> <C-w>w
+inoremap <A-h> <C-o>h
+inoremap <A-j> <C-o>j
+inoremap <A-k> <C-o>k
+inoremap <A-l> <C-o>l
 
 
 "===========================================================
@@ -195,12 +199,15 @@ EOF
     "             'Yellow','Magenta','LightBlue'
     "         }
     "     }
+    
 
-" CtrlSpace
-" set nocompatible
-" set hidden
-" set showtabline=0
-" let g:CtrlSpaceDefaultMappingKey = "<C-space> "
+" Telescope
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
 
 " Vimspector
 "let g:vimspector_sidebar_width = 33
