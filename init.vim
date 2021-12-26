@@ -86,7 +86,8 @@ Plug 'psliwka/vim-smoothie'
 " --Terminal--
 Plug 'voldikss/vim-floaterm'
 " --Auto pairs--
-Plug 'jiangmiao/auto-pairs'
+" Plug 'jiangmiao/auto-pairs'
+Plug 'cohama/lexima.vim'
 Plug 'tpope/vim-surround'
 " --Treeshitter--
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
