@@ -43,14 +43,14 @@ set mouse=a
 set ignorecase
 set smartcase
 " Use system clipboard
-"set clipboard+=unnamedplus
+" set clipboard+=unnamedplus
 
 
 "===========================================================
 "--------------------------Keymaps--------------------------
 "===========================================================
-" inoremap jk <Esc>
-inoremap kj <Esc>
+inoremap jk <Esc>
+" inoremap kj <Esc>
 inoremap <expr> <C-j> pumvisible() ? "\<C-N>" : "\<C-j>"
 inoremap <expr> <C-k> pumvisible() ? "\<C-P>" : "\<C-k>"
 inoremap <expr> <Tab> pumvisible() ? "\<C-N>" : "\<Tab>"
@@ -88,8 +88,6 @@ Plug 'psliwka/vim-smoothie'
 " Plug 'p00f/nvim-ts-rainbow'
 " --Terminal--
 Plug 'voldikss/vim-floaterm'
-" --ALE--
-" Plug 'dense-analysis/ale'
 " --Auto pairs--
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
@@ -106,22 +104,20 @@ Plug 'puremourning/vimspector'
 " --Tree icons--
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
-" --Tab management--
-" Plug 'vim-ctrlspace/vim-ctrlspace'
+" --Lightspeed--
+Plug 'ggandor/lightspeed.nvim'
+Plug 'tpope/vim-repeat'
+" --Neoclip
+Plug 'AckslD/nvim-neoclip.lua'
+" Plug 'tami5/sqlite.lua'
 call plug#end()
 
 "===========================================================
 "--------------------------Colours--------------------------
 "===========================================================
+
 colorscheme material
 let g:material_style = 'oceanic'
-" let g:rainbow_active = 1
-" let g:rainbow_conf = {'guifgs': ['Yellow', 'Magenta','LightBlue']}
-" let g:operators = ''
-" let g:rainbow_guifgs = ['Yellow', 'Magenta','LightBlue']
-" let g:rainbow_ctermfgs = ['lightblue', 'lightgreen', 'yellow', 'red', 'magenta']
-" let g:rainbow_load_separately = [[ '*.*' , [['(', ')'], ['\[', '\]'], ['{', '}']] ]]
-
 
 "===========================================================
 "-----------------------Plugin Setups-----------------------
@@ -172,9 +168,6 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 " Nerd tree icons
-" let g:webdevicons_conceal_nerdtree_brackets = 0
-" set guifont=Hack\ Regular\ Nerd\ Font\ 11
-"autocmd FileType nerdtree setlocal nolist
 set conceallevel=3
 
 " Treesitter enable highlight
@@ -202,14 +195,12 @@ require'nvim-treesitter.configs'.setup {
         },
     },
 }
+  
+require('neoclip').setup({
+    --enable_persistant_history = true,
+  })
+ 
 EOF
-    " rainbow = {
-    "         enable=true,
-    "         termcolors={
-    "             'Yellow','Magenta','LightBlue'
-    "         }
-    "     }
-    
 
 " Telescope
 " Find files using Telescope command-line sugar.
@@ -217,6 +208,7 @@ nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+nnoremap <leader>fn <cmd>Telescope neoclip plus<cr><Esc>
 
 
 " Vimspector
