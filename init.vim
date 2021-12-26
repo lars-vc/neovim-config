@@ -83,9 +83,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdtree'
 " --Better scrolling--
 Plug 'psliwka/vim-smoothie'
-" --RainbowBrackets--
-" Plug 'luochen1990/rainbow'
-" Plug 'p00f/nvim-ts-rainbow'
 " --Terminal--
 Plug 'voldikss/vim-floaterm'
 " --Auto pairs--
