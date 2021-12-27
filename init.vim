@@ -62,7 +62,7 @@ inoremap <A-k> <C-o>k
 inoremap <A-l> <C-o>l
 nnoremap <F2> gT
 nnoremap <F3> gt
-
+:command Cheat tabedit ~/.config/nvim/cheatsheet.vim
 
 "===========================================================
 "--------------------------Plugins--------------------------
