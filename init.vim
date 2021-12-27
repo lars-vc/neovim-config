@@ -28,9 +28,6 @@ set numberwidth=4
 set incsearch
 set nohlsearch
 set noea
-" open splits intuitively
-" set splitbelow
-" set splitright
 " navigate buffers without losing unsaved work
 set hidden
 " start scrolling when 8 lines from top or bottom
@@ -160,7 +157,6 @@ nmap <leader>rn <Plug>(coc-rename)
 let g:python3_host_prog="/usr/bin/python"
 au BufWrite * :call CocAction('format')
 noremap <C-A-l> :call CocAction('format')<CR>
-" noremap <F3> :call CocAction('format')<CR>
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
