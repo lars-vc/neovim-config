@@ -206,8 +206,38 @@ nnoremap <leader>fc <cmd>Telescope current_buffer_fuzzy_find<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <leader>fn <cmd>Telescope neoclip plus<cr><Esc>
-
-
+lua <<EOF
+require('telescope').setup {
+    pickers = {
+        find_files = {
+            path_display = {"truncate"},
+            color_devicons=true,
+        },
+        live_grep = {
+            path_display = {"shorten"},
+        },
+    },
+    defaults = {
+        -- layout_strategy="center",
+        layout_config = {
+            horizontal = {
+                height= 0.95,
+                width= 0.95,
+            },
+            center = {
+                height= 0.95,
+                width= 0.95,
+            }
+        },
+    },
+    mappings = {
+        i = {
+            ["<C-j>"] = "Down",
+            ["<C-k>"] = "Up",
+        }
+    }
+}
+EOF
 " Vimspector
 "let g:vimspector_sidebar_width = 33
 let g:vimspector_code_minwidth = 90
