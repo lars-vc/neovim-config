@@ -2,5 +2,4 @@
 
 ## Minor annoyances to fix
 * SQLite for neoclip
-* shortenpath telescope
-* preview width telescope
+* telescope devicons
