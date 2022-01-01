@@ -104,9 +104,11 @@ Plug 'ryanoasis/vim-devicons'
 " --Lightspeed--
 Plug 'ggandor/lightspeed.nvim'
 Plug 'tpope/vim-repeat'
-" --Neoclip
+" --Neoclip--
 Plug 'AckslD/nvim-neoclip.lua'
 " Plug 'tami5/sqlite.lua'
+" --Indentlines--
+" Plug 'lukas-reineke/indent-blankline.nvim'
 call plug#end()
 
 "===========================================================
@@ -194,8 +196,13 @@ require'nvim-treesitter.configs'.setup {
   
 require('neoclip').setup({
     --enable_persistant_history = true,
-  })
- 
+})
+
+-- require("indent_blankline").setup {
+--     space_char_blankline = " ",
+--     show_current_context = true,
+--     show_current_context_start = true,
+-- }
 EOF
 
 " Telescope
