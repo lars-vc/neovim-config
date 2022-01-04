@@ -160,10 +160,19 @@ let g:python3_host_prog="/usr/bin/python"
 au BufWrite * :call CocAction('format')
 noremap <C-A-l> :call CocAction('format')<CR>
 " GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+nmap <silent> <leader>cd <Plug>(coc-definition)
+nmap <silent> <leader>cy <Plug>(coc-type-definition)
+nmap <silent> <leader>ci <Plug>(coc-implementation)
+nmap <silent> <leader>cr <Plug>(coc-references)
+nnoremap <silent> <leader>ct :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
 
 " Nerd tree icons
 set conceallevel=3
