@@ -53,10 +53,14 @@ inoremap <expr> <C-k> pumvisible() ? "\<C-P>" : "\<C-k>"
 inoremap <expr> <Tab> pumvisible() ? "\<C-N>" : "\<Tab>"
 let mapleader = ","
 nnoremap <F1> <C-w>w
-inoremap <A-h> <C-o>h
-inoremap <A-j> <C-o>j
-inoremap <A-k> <C-o>k
-inoremap <A-l> <C-o>l
+" inoremap <A-h> <C-o>h
+" inoremap <A-j> <C-o>j
+" inoremap <A-k> <C-o>k
+" inoremap <A-l> <C-o>l
+inoremap <A-h> <Left>
+inoremap <A-j> <Down>
+inoremap <A-k> <Up>
+inoremap <A-l> <Right>
 nnoremap <F2> gT
 nnoremap <F3> gt
 :command Cheat tabedit ~/.config/nvim/cheatsheet.vim
@@ -87,7 +91,7 @@ Plug 'voldikss/vim-floaterm'
 " --Auto pairs--
 " Plug 'jiangmiao/auto-pairs'
 Plug 'cohama/lexima.vim'
-Plug 'tpope/vim-surround'
+" Plug 'tpope/vim-surround'
 " --Treeshitter--
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 " --Commenting (gcc)--
@@ -135,7 +139,7 @@ lua require('lars-vc')
 
 " NERD tree
 " this is for session making
-autocmd VimEnter * nested call RestoreSess()
+" autocmd VimEnter * nested call RestoreSess()
 autocmd VimEnter * NERDTree | wincmd p
 autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
@@ -298,4 +302,4 @@ endif
 endfunction
 
 autocmd VimLeave * NERDTreeClose
-autocmd VimLeave * call SaveSess()
+" autocmd VimLeave * call SaveSess()
