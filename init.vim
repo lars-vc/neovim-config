@@ -113,6 +113,10 @@ Plug 'AckslD/nvim-neoclip.lua'
 " Plug 'tami5/sqlite.lua'
 " --Indentlines--
 " Plug 'lukas-reineke/indent-blankline.nvim'
+" --Sessions--
+Plug 'jistr/vim-nerdtree-tabs'
+Plug 'xolox/vim-session'
+Plug 'xolox/vim-misc'
 call plug#end()
 
 "===========================================================
@@ -140,7 +144,8 @@ lua require('lars-vc')
 " NERD tree
 " this is for session making
 " autocmd VimEnter * nested call RestoreSess()
-autocmd VimEnter * NERDTree | wincmd p
+" autocmd VimEnter * NERDTree | wincmd p
+autocmd VimEnter * if argc() == 1 | execute 'NERDTree' | wincmd p | endif
 autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
@@ -283,23 +288,27 @@ nmap <Leader>di <Plug>VimspectorBalloonEval
 " for visual mode, the visually selected text
 xmap <Leader>di <Plug>VimspectorBalloonEval
 
-" Workspaces
-fu! SaveSess()
-    execute 'mksession! ' . getcwd() . '/.session.vim'
-endfunction
+" fu! SaveSess()
+"     execute 'mksession! ' . getcwd() . '/.session.vim'
+" endfunction
 
-fu! RestoreSess()
-if filereadable(getcwd() . '/.session.vim')
-    execute 'so ' . getcwd() . '/.session.vim'
-    if bufexists(1)
-        for l in range(1, bufnr('$'))
-            if bufwinnr(l) == -1
-                exec 'sbuffer ' . l
-            endif
-        endfor
-    endif
-endif
-endfunction
+" fu! RestoreSess()
+" if filereadable(getcwd() . '/.session.vim')
+"     execute 'so ' . getcwd() . '/.session.vim'
+"     if bufexists(1)
+"         for l in range(1, bufnr('$'))
+"             if bufwinnr(l) == -1
+"                 exec 'sbuffer ' . l
+"             endif
+"         endfor
+"     endif
+" endif
+" endfunction
 
-autocmd VimLeave * NERDTreeClose
+" autocmd VimLeave * NERDTreeTabsClose
 " autocmd VimLeave * call SaveSess()
+
+" Workspaces
+let g:session_autosave = 'yes'
+let g:session_autoload = 'yes'
+let g:session_default_overwrite = 1
