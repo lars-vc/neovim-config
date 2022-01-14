@@ -147,7 +147,7 @@ lua require('lars-vc')
 " autocmd VimEnter * NERDTree | wincmd p
 autocmd VimEnter * if argc() == 1 | execute 'NERDTree' | wincmd p | endif
 autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
-autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+" autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
 " Floatterm
 " Save all tabs when opening terminal
@@ -312,3 +312,8 @@ xmap <Leader>di <Plug>VimspectorBalloonEval
 let g:session_autosave = 'yes'
 let g:session_autoload = 'yes'
 let g:session_default_overwrite = 1
+
+" Closing stuff
+nnoremap <leader>xt :wa<cr>:tabclose<cr>
+nnoremap <leader>xx :wa<cr>:qa<cr>
+nnoremap <leader>xq :qa!<cr>

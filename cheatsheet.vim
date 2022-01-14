@@ -2,6 +2,12 @@
 "------------------------CheatSheet-------------------------
 "===========================================================
 
+"--------------------------COMMON---------------------------
+,xt => :wa :tabclose   (close current tab)
+,xx => :wa :qa         (close everything)
+,xq => :qa!            (close everything and dont save)
+
+
 "-------------------------TELESCOPE-------------------------
 ,ff => find_files                  (find file in project)
 ,fg => live_grep                   (find in project)
