@@ -117,6 +117,8 @@ Plug 'AckslD/nvim-neoclip.lua'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'xolox/vim-session'
 Plug 'xolox/vim-misc'
+" --Practise--
+Plug 'ThePrimeagen/vim-be-good'
 call plug#end()
 
 "===========================================================
