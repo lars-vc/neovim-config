@@ -50,7 +50,8 @@ inoremap jk <Esc>
 " inoremap kj <Esc>
 inoremap <expr> <C-j> pumvisible() ? "\<C-N>" : "\<C-j>"
 inoremap <expr> <C-k> pumvisible() ? "\<C-P>" : "\<C-k>"
-inoremap <expr> <Tab> pumvisible() ? "\<C-N>" : "\<Tab>"
+" inoremap <expr> <Tab> pumvisible() ? "\<C-N>" : "\<Tab>"
+inoremap <silent><expr> <Tab> pumvisible() ? coc#_select_confirm() : "\<Tab>"
 let mapleader = ","
 nnoremap <F1> <C-w>w
 " inoremap <A-h> <C-o>h
@@ -312,7 +313,7 @@ xmap <Leader>di <Plug>VimspectorBalloonEval
 
 " Workspaces
 let g:session_autosave = 'yes'
-let g:session_autoload = 'yes'
+let g:session_autoload = 'prompt'
 let g:session_default_overwrite = 1
 
 " Closing stuff
