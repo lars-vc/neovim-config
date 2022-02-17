@@ -41,7 +41,8 @@ set ignorecase
 set smartcase
 " Use system clipboard
 " set clipboard+=unnamedplus
-
+" increment letters
+set nrformats+=alpha
 
 "===========================================================
 "--------------------------Keymaps--------------------------
@@ -69,6 +70,14 @@ nnoremap <F3> gt
 "===========================================================
 "--------------------------Plugins--------------------------
 "===========================================================
+
+if ! filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim"'))
+	echo "Downloading junegunn/vim-plug to manage plugins..."
+	silent !mkdir -p ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/
+	silent !curl "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" > ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim
+	autocmd VimEnter * PlugInstall
+endif
+
 call plug#begin('~/.config/nvim/plugged')
 " --Theme--
 Plug 'marko-cerovac/material.nvim'
@@ -268,15 +277,16 @@ require('telescope').setup {
     }
 }
 EOF
+
 " Vimspector
 "let g:vimspector_sidebar_width = 33
 let g:vimspector_code_minwidth = 90
 let g:vimspector_terminal_maxwidth = 75
 let g:vimspector_terminal_minwidth = 20
 " Debug window setup
-nmap <leader>dd : call vimspector#Launch()<CR>:NERDTreeClose<CR>2<C-w>j:q<CR> 
+nmap <leader>dd :call vimspector#Launch()<CR>:NERDTreeClose<CR>2<C-w>j:q<CR> 
 ":resize 15<CR>
-nmap <leader>dx : call vimspector#Reset()<CR>
+nmap <leader>dx :call vimspector#Reset()<CR>
 nnoremap <leader>dX :call vimspector#ClearBreakpoints()<CR>
 nnoremap <S-k> :call vimspector#StepOut()<CR>
 nnoremap <S-l> :call vimspector#StepInto()<CR>
@@ -290,6 +300,7 @@ nnoremap <leader>de :call vimspector#ToggleConditionalBreakpoint()<CR>
 nmap <Leader>di <Plug>VimspectorBalloonEval
 " for visual mode, the visually selected text
 xmap <Leader>di <Plug>VimspectorBalloonEval
+let g:vimspector_install_gadgets = [ 'debugpy', 'vscode-cpptools', 'CodeLLDB', 'vscode-node-debug2' ]
 
 " fu! SaveSess()
 "     execute 'mksession! ' . getcwd() . '/.session.vim'
@@ -320,3 +331,6 @@ let g:session_default_overwrite = 1
 nnoremap <leader>xt :wa<cr>:tabclose<cr>
 nnoremap <leader>xx :wa<cr>:qa<cr>
 nnoremap <leader>xq :qa!<cr>
+
+" PROLOG
+au FileType perl set filetype=prolog
