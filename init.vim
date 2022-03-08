@@ -36,7 +36,7 @@ inoremap jk <Esc>
 inoremap <expr> <C-j> pumvisible() ? "\<C-N>" : "\<C-j>"
 inoremap <expr> <C-k> pumvisible() ? "\<C-P>" : "\<C-k>"
 inoremap <silent><expr> <Tab> pumvisible() ? coc#_select_confirm() : "\<Tab>"
-let mapleader = ","
+let mapleader = " "
 nnoremap <F1> <C-w>w
 " For moving in insert mode
 inoremap <A-h> <Left>
@@ -287,5 +287,14 @@ nnoremap <leader>xq :qa!<cr>
 
 " Autopair
 let g:AutoPairsCenterLine = 0
+
+" Vim-fugitive
+nnoremap <leader>gg :G 
+nnoremap <leader>gs :G<CR>
+nnoremap <leader>gp :Gpush<CR>
+" for merge conflicts
+nnoremap <leader>gh :diffget //2<CR>
+nnoremap <leader>gl :diffget //3<CR>
+
 " PROLOG
 au FileType perl set filetype=prolog
