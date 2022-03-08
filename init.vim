@@ -8,57 +8,42 @@
 "===========================================================
 "---------------------------Basic---------------------------
 "===========================================================
-" enables syntax highlighting
-syntax on
-" Better colors
-set termguicolors
-" number of spaces in a <Tab>
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set expandtab
-" enable autoindents
-set smartindent
-" adds line numbers
-set number
-set relativenumber
-" columns used for the line number
-set numberwidth=4
-" highlights the matched text pattern when searching
-set incsearch
-set nohlsearch
-set noea
-" navigate buffers without losing unsaved work
-set hidden
-" start scrolling when 8 lines from top or bottom
-set scrolloff=8
-" Save undo history
-set undofile
-" Enable mouse support
-set mouse=a
-" case insensitive search unless capital letters are used
-set ignorecase
-set smartcase
-" Use system clipboard
-" set clipboard+=unnamedplus
-" increment letters
-set nrformats+=alpha
+syntax on               " enables syntax highlighting
+set termguicolors       " better colors
+set tabstop=4           " number of spaces in a <Tab>
+set shiftwidth=4        " 
+set softtabstop=4       " 
+set expandtab           " 
+set smartindent         " enable autoindents
+set number              " adds line numbers
+set relativenumber      " relative numbers in sidebar
+set numberwidth=4       " columns used for the line number
+set incsearch           " highlighting matched strings while searching
+set nohlsearch          " no remaining highlights on search
+set noea                " splitting windows
+set hidden              " navigate buffers without losing unsaved work
+set scrolloff=8         " start scrolling when 8 lines from top or bottom
+set undofile            " save undo history
+set mouse=a             " enable mouse support
+set ignorecase          " case insensitive search unless capital letters are used
+set smartcase           " 
+set nrformats+=alpha    " increment letters
 
 "===========================================================
 "--------------------------Keymaps--------------------------
 "===========================================================
 inoremap jk <Esc>
-" inoremap kj <Esc>
 inoremap <expr> <C-j> pumvisible() ? "\<C-N>" : "\<C-j>"
 inoremap <expr> <C-k> pumvisible() ? "\<C-P>" : "\<C-k>"
-" inoremap <expr> <Tab> pumvisible() ? "\<C-N>" : "\<Tab>"
 inoremap <silent><expr> <Tab> pumvisible() ? coc#_select_confirm() : "\<Tab>"
 let mapleader = ","
 nnoremap <F1> <C-w>w
+" For moving in insert mode
 inoremap <A-h> <Left>
 inoremap <A-j> <Down>
 inoremap <A-k> <Up>
 inoremap <A-l> <Right>
+" for moving around windows
 map <A-H> <C-w>h
 map <A-J> <C-w>j
 map <A-K> <C-w>k
@@ -71,6 +56,7 @@ nnoremap <F3> gt
 "--------------------------Plugins--------------------------
 "===========================================================
 
+" making sure vim-plug is installed
 if ! filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim"'))
 	echo "Downloading junegunn/vim-plug to manage plugins..."
 	silent !mkdir -p ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/
@@ -99,11 +85,11 @@ Plug 'psliwka/vim-smoothie'
 " --Terminal--
 Plug 'voldikss/vim-floaterm'
 " --Auto pairs--
-" Plug 'jiangmiao/auto-pairs'
-Plug 'cohama/lexima.vim'
+Plug 'jiangmiao/auto-pairs'
+" Plug 'LunarWatcher/auto-pairs'
 " Plug 'tpope/vim-surround'
 " --Treeshitter--
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " --Commenting (gcc)--
 Plug 'tpope/vim-commentary'
 " --Git stuff--
@@ -121,8 +107,6 @@ Plug 'tpope/vim-repeat'
 " --Neoclip--
 Plug 'AckslD/nvim-neoclip.lua'
 " Plug 'tami5/sqlite.lua'
-" --Indentlines--
-" Plug 'lukas-reineke/indent-blankline.nvim'
 " --Sessions--
 Plug 'jistr/vim-nerdtree-tabs'
 " Plug 'xolox/vim-session'
@@ -131,6 +115,8 @@ Plug 'jistr/vim-nerdtree-tabs'
 Plug 'ThePrimeagen/vim-be-good'
 " --TagBar--
 Plug 'preservim/tagbar'
+" --Kotlin--
+Plug 'udalov/kotlin-vim'
 call plug#end()
 
 "===========================================================
@@ -156,7 +142,6 @@ set noshowmode
 lua require('lars-vc')
 
 " NERD tree
-" this is for session making
 autocmd VimEnter * NERDTree | wincmd p
 autocmd VimEnter * if argc() == 1 | execute 'NERDTree' | wincmd p | endif
 autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
@@ -180,7 +165,7 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
 " Autoformatting with coc
-let g:python3_host_prog="/usr/bin/python"
+let g:python3_host_prog="/usr/bin/python3"
 au BufWrite * :call CocAction('format')
 noremap <C-A-l> :call CocAction('format')<CR>
 " GoTo code navigation.
@@ -190,6 +175,7 @@ nmap <silent> <leader>ci <Plug>(coc-implementation)
 nmap <silent> <leader>cr <Plug>(coc-references)
 nnoremap <silent> <leader>ct :call <SID>show_documentation()<CR>
 
+" show documentation on hover and ct
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
@@ -205,16 +191,11 @@ set conceallevel=3
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
     highlight = {
-    enable = true,
-    custom_captures = {
-        -- Highlight the @foo.bar capture group with the "Identifier" highlight group.
-        ["foo.bar"] = "Identifier",
+        enable = true,
+        custom_captures = {
+                ["foo.bar"] = "Identifier",
         },
-    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-    -- Using this option may slow down your editor, and you may see some duplicate highlights.
-    -- Instead of true it can also be a list of languages
-    additional_vim_regex_highlighting = false,
+        additional_vim_regex_highlighting = false,
     },
     incremental_selection = {
         enable = true,
@@ -230,12 +211,6 @@ require'nvim-treesitter.configs'.setup {
 require('neoclip').setup({
     --enable_persistant_history = true,
 })
-
--- require("indent_blankline").setup {
---     space_char_blankline = " ",
---     show_current_context = true,
---     show_current_context_start = true,
--- }
 EOF
 
 " Telescope
@@ -258,7 +233,6 @@ require('telescope').setup {
         },
     },
     defaults = {
-        -- layout_strategy="center",
         layout_config = {
             horizontal = {
                 height= 0.95,
@@ -280,13 +254,11 @@ require('telescope').setup {
 EOF
 
 " Vimspector
-"let g:vimspector_sidebar_width = 33
 let g:vimspector_code_minwidth = 90
 let g:vimspector_terminal_maxwidth = 75
 let g:vimspector_terminal_minwidth = 20
-" Debug window setup
+" Debug window setup (hacky but works)
 nmap <leader>dd :call vimspector#Launch()<CR>:NERDTreeClose<CR>2<C-w>j:q<CR> 
-":resize 15<CR>
 nmap <leader>dx :call vimspector#Reset()<CR>
 nnoremap <leader>dX :call vimspector#ClearBreakpoints()<CR>
 nnoremap <S-k> :call vimspector#StepOut()<CR>
@@ -303,31 +275,6 @@ nmap <Leader>di <Plug>VimspectorBalloonEval
 xmap <Leader>di <Plug>VimspectorBalloonEval
 let g:vimspector_install_gadgets = [ 'debugpy', 'vscode-cpptools', 'CodeLLDB', 'vscode-node-debug2' ]
 
-" fu! SaveSess()
-"     execute 'mksession! ' . getcwd() . '/.session.vim'
-" endfunction
-
-" fu! RestoreSess()
-" if filereadable(getcwd() . '/.session.vim')
-"     execute 'so ' . getcwd() . '/.session.vim'
-"     if bufexists(1)
-"         for l in range(1, bufnr('$'))
-"             if bufwinnr(l) == -1
-"                 exec 'sbuffer ' . l
-"             endif
-"         endfor
-"     endif
-" endif
-" endfunction
-
-" autocmd VimLeave * NERDTreeTabsClose
-" autocmd VimLeave * call SaveSess()
-
-" Workspaces
-" let g:session_autosave = 'yes'
-" let g:session_autoload = 'prompt'
-" let g:session_default_overwrite = 1
-
 " TagBar
 nnoremap <F8> :TagbarToggle<CR>
 let g:tagbar_map_nexttag = '<C-j>'
@@ -338,5 +285,7 @@ nnoremap <leader>xt :wa<cr>:tabclose<cr>
 nnoremap <leader>xx :wa<cr>:qa<cr>
 nnoremap <leader>xq :qa!<cr>
 
+" Autopair
+let g:AutoPairsCenterLine = 0
 " PROLOG
 au FileType perl set filetype=prolog

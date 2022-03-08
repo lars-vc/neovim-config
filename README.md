@@ -7,3 +7,4 @@ Install by cloning in ~/.config/nvim
 * SQLite for neoclip
 * telescope devicons
 * bracket pairings
+* Floatterm cutting off output
