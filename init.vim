@@ -151,6 +151,8 @@ autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
 " Save all tabs when opening terminal
 nnoremap   <silent>   <F12>   :wa<CR>:FloatermToggle<CR>
 tnoremap   <silent>   <F12>   <C-\><C-n>:FloatermToggle<CR>
+nnoremap   <silent>   ²   :wa<CR>:FloatermToggle<CR>
+tnoremap   <silent>   ²   <C-\><C-n>:FloatermToggle<CR>
 let g:floaterm_height=0.95
 let g:floaterm_width=0.8
 
@@ -174,7 +176,6 @@ nmap <silent> <leader>cy <Plug>(coc-type-definition)
 nmap <silent> <leader>ci <Plug>(coc-implementation)
 nmap <silent> <leader>cr <Plug>(coc-references)
 nnoremap <silent> <leader>ct :call <SID>show_documentation()<CR>
-
 " show documentation on hover and ct
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
@@ -183,6 +184,20 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+" Applying codeAction to the selected region.
+" Example: `<leader>aap` for current paragraph
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+" Remap keys for applying codeAction to the current buffer.
+nmap <leader>ca  <Plug>(coc-codeaction)
+" Apply AutoFix to problem on the current line.
+nmap <leader>cf  <Plug>(coc-fix-current)
+" Run the Code Lens action on the current line.
+nmap <leader>cl  <Plug>(coc-codelens-action)
+" Extensions
+let g:coc_global_extensions = ["coc-clangd", "coc-html", "coc-java", "coc-json", "coc-kotlin", "coc-pyright", "coc-rls", "coc-tsserver"]
 
 " Nerd tree icons
 set conceallevel=3
