@@ -292,6 +292,7 @@ let g:AutoPairsCenterLine = 0
 nnoremap <leader>gg :G 
 nnoremap <leader>gs :G<CR>
 nnoremap <leader>gp :Git push<CR>
+nnoremap <leader>gc :G coma ""<Left>
 " for merge conflicts
 nnoremap <leader>gh :diffget //2<CR>
 nnoremap <leader>gl :diffget //3<CR>
