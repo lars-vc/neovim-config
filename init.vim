@@ -55,14 +55,14 @@ inoremap <expr> <C-k> pumvisible() ? "\<C-P>" : "\<C-k>"
 inoremap <silent><expr> <Tab> pumvisible() ? coc#_select_confirm() : "\<Tab>"
 let mapleader = ","
 nnoremap <F1> <C-w>w
-" inoremap <A-h> <C-o>h
-" inoremap <A-j> <C-o>j
-" inoremap <A-k> <C-o>k
-" inoremap <A-l> <C-o>l
 inoremap <A-h> <Left>
 inoremap <A-j> <Down>
 inoremap <A-k> <Up>
 inoremap <A-l> <Right>
+map <A-H> <C-w>h
+map <A-J> <C-w>j
+map <A-K> <C-w>k
+map <A-L> <C-w>l
 nnoremap <F2> gT
 nnoremap <F3> gt
 :command Cheat tabedit ~/.config/nvim/cheatsheet.vim
@@ -125,10 +125,12 @@ Plug 'AckslD/nvim-neoclip.lua'
 " Plug 'lukas-reineke/indent-blankline.nvim'
 " --Sessions--
 Plug 'jistr/vim-nerdtree-tabs'
-Plug 'xolox/vim-session'
-Plug 'xolox/vim-misc'
+" Plug 'xolox/vim-session'
+" Plug 'xolox/vim-misc'
 " --Practise--
 Plug 'ThePrimeagen/vim-be-good'
+" --TagBar--
+Plug 'preservim/tagbar'
 call plug#end()
 
 "===========================================================
@@ -155,8 +157,7 @@ lua require('lars-vc')
 
 " NERD tree
 " this is for session making
-" autocmd VimEnter * nested call RestoreSess()
-" autocmd VimEnter * NERDTree | wincmd p
+autocmd VimEnter * NERDTree | wincmd p
 autocmd VimEnter * if argc() == 1 | execute 'NERDTree' | wincmd p | endif
 autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
 " autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
@@ -323,9 +324,14 @@ let g:vimspector_install_gadgets = [ 'debugpy', 'vscode-cpptools', 'CodeLLDB', '
 " autocmd VimLeave * call SaveSess()
 
 " Workspaces
-let g:session_autosave = 'yes'
-let g:session_autoload = 'prompt'
-let g:session_default_overwrite = 1
+" let g:session_autosave = 'yes'
+" let g:session_autoload = 'prompt'
+" let g:session_default_overwrite = 1
+
+" TagBar
+nnoremap <F8> :TagbarToggle<CR>
+let g:tagbar_map_nexttag = '<C-j>'
+let g:tagbar_map_prevtag = '<C-k>'
 
 " Closing stuff
 nnoremap <leader>xt :wa<cr>:tabclose<cr>
