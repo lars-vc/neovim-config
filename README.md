@@ -8,3 +8,6 @@ Install by cloning in ~/.config/nvim
 * telescope devicons
 * bracket pairings
 * Floatterm cutting off output
+
+## Maybelookats
+* octo.nvim
