@@ -112,8 +112,6 @@ Plug 'AckslD/nvim-neoclip.lua'
 " Plug 'tami5/sqlite.lua'
 " --Sessions--
 Plug 'jistr/vim-nerdtree-tabs'
-" Plug 'xolox/vim-session'
-" Plug 'xolox/vim-misc'
 " --Practise--
 Plug 'ThePrimeagen/vim-be-good'
 " --TagBar--
