@@ -118,6 +118,7 @@ Plug 'ThePrimeagen/vim-be-good'
 Plug 'preservim/tagbar'
 " --Kotlin--
 Plug 'udalov/kotlin-vim'
+Plug 'kyazdani42/nvim-web-devicons'
 call plug#end()
 "===========================================================
 "--------------------------Colours--------------------------
@@ -228,6 +229,7 @@ nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <leader>fn <cmd>Telescope neoclip plus<cr><Esc>
 lua <<EOF
+require('telescope').load_extension('fzf')
 require('telescope').setup {
     pickers = {
         find_files = {
@@ -256,6 +258,9 @@ require('telescope').setup {
             ["<C-k>"] = "Up",
         }
     }
+}
+require('nvim-web-devicons').setup {
+    default = true;
 }
 EOF
 "\\\\\\\\\\\\\\\\\\\\\\\\\_________/////////////////////////
@@ -298,8 +303,6 @@ nnoremap <leader>gl :diffget //3<CR>
 let g:AutoPairsCenterLine = 0
 " Gitgutter
 :au VimEnter * :GitGutterSignsDisable
-" Lua script
-lua require('lars-vc')
 " Nerd tree icons
 set conceallevel=3
 " Prolog
@@ -308,4 +311,6 @@ au FileType perl set filetype=prolog
 nnoremap <F8> :TagbarToggle<CR>
 let g:tagbar_map_nexttag = '<C-j>'
 let g:tagbar_map_prevtag = '<C-k>'
+" Z Lua script
+" lua require('lars-vc')
 "\\\\\\\\\\\\\\\\\\\\\\\\\\_____////////////////////////////

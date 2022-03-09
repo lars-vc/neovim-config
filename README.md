@@ -46,6 +46,7 @@ sudo n stable
 ### Python3
 ```
 sudo apt install python3
+sudo apt install python3-pip
 ```
 
 ### Tagbar
