@@ -81,4 +81,7 @@ On different pc fzf extension for telescope doesn't work, fix is to comment that
 * Floatterm cutting off output
 
 ## Maybelookats
-* octo.nvim
+* [octo](https://github.com/pwntester/octo.nvim)
+* [himalaya](https://github.com/soywod/himalaya)
+* [agenda](https://github.com/dhruvasagar/vim-dotoo)
+* [org-mode](https://github.com/vimoutliner/vimoutliner)
