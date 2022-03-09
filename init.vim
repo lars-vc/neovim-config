@@ -144,7 +144,7 @@ autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
 " autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 "\\\\\\\\\\\\\\\\\\\\\\\\\_______//////////////////////////
 
-"/////////////////////////Floatterm\\\\\\\\\\\\\\\\\\\\\\\\\
+"/////////////////////////Floaterm\\\\\\\\\\\\\\\\\\\\\\\\\\
 " Save all tabs when opening terminal
 nnoremap   <silent>   <F12>   :wa<CR>:FloatermToggle<CR>
 tnoremap   <silent>   <F12>   <C-\><C-n>:FloatermToggle<CR>
@@ -152,7 +152,7 @@ nnoremap   <silent>   ²   :wa<CR>:FloatermToggle<CR>
 tnoremap   <silent>   ²   <C-\><C-n>:FloatermToggle<CR>
 let g:floaterm_height=0.95
 let g:floaterm_width=0.8
-"\\\\\\\\\\\\\\\\\\\\\\\\\________/////////////////////////
+"\\\\\\\\\\\\\\\\\\\\\\\\\_______//////////////////////////
 
 "///////////////////////////COC\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 " Coc.nvim
