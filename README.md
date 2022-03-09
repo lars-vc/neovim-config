@@ -62,16 +62,23 @@ sudo apt install gh
 ```
 also setup gh auth
 
+### Neoclip
+```
+sudo apt install sqlite3 libsqlite3-dev
+```
+
 ### Other stuff
 ```
 pip install ropevim
 sudo apt install ripgrep
 ```
 
+## Known Problems
+On different pc fzf extension for telescope doesn't work, fix is to comment that part out
 
 ## Minor annoyances to fix
 * SQLite for neoclip
-* telescope devicons
+* telescope keybinds
 * Floatterm cutting off output
 
 ## Maybelookats

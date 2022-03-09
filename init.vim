@@ -112,7 +112,7 @@ Plug 'ggandor/lightspeed.nvim'
 Plug 'tpope/vim-repeat'
 " --Neoclip--
 Plug 'AckslD/nvim-neoclip.lua'
-" Plug 'tami5/sqlite.lua'
+Plug 'tami5/sqlite.lua'
 " --Sessions--
 Plug 'jistr/vim-nerdtree-tabs'
 " --Practise--
@@ -123,6 +123,8 @@ Plug 'preservim/tagbar'
 Plug 'udalov/kotlin-vim'
 " --WhichKey--
 Plug 'folke/which-key.nvim'
+" --Aligning text--
+Plug 'godlygeek/tabular'
 call plug#end()
 "===========================================================
 "--------------------------Colours--------------------------
@@ -259,6 +261,9 @@ require('telescope').setup {
             ["<C-k>"] = "<C-p>",
         }
     }
+}
+require('neoclip').setup {
+    enable_persistent_history = true
 }
 EOF
 "\\\\\\\\\\\\\\\\\\\\\\\\\_________/////////////////////////
