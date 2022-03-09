@@ -32,6 +32,7 @@ set nrformats+=alpha    " increment letters
 "--------------------------Keymaps--------------------------
 "===========================================================
 inoremap jk <Esc>
+nnoremap <SPACE> <Nop>
 let mapleader = " "
 " navigating plugins
 inoremap <expr> <C-j> pumvisible() ? "\<C-N>" : "\<C-j>"
@@ -118,6 +119,7 @@ Plug 'ThePrimeagen/vim-be-good'
 Plug 'preservim/tagbar'
 " --Kotlin--
 Plug 'udalov/kotlin-vim'
+Plug 'kyazdani42/nvim-web-devicons'
 call plug#end()
 "===========================================================
 "--------------------------Colours--------------------------
@@ -148,8 +150,8 @@ autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
 " Save all tabs when opening terminal
 nnoremap   <silent>   <F12>   :wa<CR>:FloatermToggle<CR>
 tnoremap   <silent>   <F12>   <C-\><C-n>:FloatermToggle<CR>
-nnoremap   <silent>   ²   :wa<CR>:FloatermToggle<CR>
-tnoremap   <silent>   ²   <C-\><C-n>:FloatermToggle<CR>
+nnoremap   <silent>   ²       :wa<CR>:FloatermToggle<CR>
+tnoremap   <silent>   ²       <C-\><C-n>:FloatermToggle<CR>
 let g:floaterm_height=0.95
 let g:floaterm_width=0.8
 "\\\\\\\\\\\\\\\\\\\\\\\\\_______//////////////////////////
@@ -228,6 +230,7 @@ nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <leader>fn <cmd>Telescope neoclip plus<cr><Esc>
 lua <<EOF
+--require('telescope').load_extension('fzf')
 require('telescope').setup {
     pickers = {
         find_files = {
@@ -256,6 +259,9 @@ require('telescope').setup {
             ["<C-k>"] = "Up",
         }
     }
+}
+require('nvim-web-devicons').setup {
+    default = true;
 }
 EOF
 "\\\\\\\\\\\\\\\\\\\\\\\\\_________/////////////////////////
@@ -298,8 +304,6 @@ nnoremap <leader>gl :diffget //3<CR>
 let g:AutoPairsCenterLine = 0
 " Gitgutter
 :au VimEnter * :GitGutterSignsDisable
-" Lua script
-lua require('lars-vc')
 " Nerd tree icons
 set conceallevel=3
 " Prolog
@@ -308,4 +312,6 @@ au FileType perl set filetype=prolog
 nnoremap <F8> :TagbarToggle<CR>
 let g:tagbar_map_nexttag = '<C-j>'
 let g:tagbar_map_prevtag = '<C-k>'
+" Z Lua script
+" lua require('lars-vc')
 "\\\\\\\\\\\\\\\\\\\\\\\\\\_____////////////////////////////
