@@ -32,6 +32,7 @@ set nrformats+=alpha    " increment letters
 "--------------------------Keymaps--------------------------
 "===========================================================
 inoremap jk <Esc>
+nnoremap <SPACE> <Nop>
 let mapleader = " "
 " navigating plugins
 inoremap <expr> <C-j> pumvisible() ? "\<C-N>" : "\<C-j>"
@@ -149,8 +150,8 @@ autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
 " Save all tabs when opening terminal
 nnoremap   <silent>   <F12>   :wa<CR>:FloatermToggle<CR>
 tnoremap   <silent>   <F12>   <C-\><C-n>:FloatermToggle<CR>
-nnoremap   <silent>   ²   :wa<CR>:FloatermToggle<CR>
-tnoremap   <silent>   ²   <C-\><C-n>:FloatermToggle<CR>
+nnoremap   <silent>   ²       :wa<CR>:FloatermToggle<CR>
+tnoremap   <silent>   ²       <C-\><C-n>:FloatermToggle<CR>
 let g:floaterm_height=0.95
 let g:floaterm_width=0.8
 "\\\\\\\\\\\\\\\\\\\\\\\\\________/////////////////////////
@@ -229,7 +230,7 @@ nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <leader>fn <cmd>Telescope neoclip plus<cr><Esc>
 lua <<EOF
-require('telescope').load_extension('fzf')
+--require('telescope').load_extension('fzf')
 require('telescope').setup {
     pickers = {
         find_files = {
