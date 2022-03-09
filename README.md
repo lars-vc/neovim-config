@@ -77,8 +77,7 @@ sudo apt install ripgrep
 On different pc fzf extension for telescope doesn't work, fix is to comment that part out
 
 ## Minor annoyances to fix
-* SQLite for neoclip
-* telescope keybinds
+* Telescope keybinds
 * Floatterm cutting off output
 
 ## Maybelookats
