@@ -28,6 +28,7 @@ set mouse=a             " enable mouse support
 set ignorecase          " case insensitive search unless capital letters are used
 set smartcase           " 
 set nrformats+=alpha    " increment letters
+set timeoutlen=500      " for whichkey to show up quicker
 "===========================================================
 "--------------------------Keymaps--------------------------
 "===========================================================
@@ -75,6 +76,7 @@ Plug 'marko-cerovac/material.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', {'do': 'make' }
+Plug 'kyazdani42/nvim-web-devicons'
 " --Airline--
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -119,7 +121,8 @@ Plug 'ThePrimeagen/vim-be-good'
 Plug 'preservim/tagbar'
 " --Kotlin--
 Plug 'udalov/kotlin-vim'
-Plug 'kyazdani42/nvim-web-devicons'
+" --WhichKey--
+Plug 'folke/which-key.nvim'
 call plug#end()
 "===========================================================
 "--------------------------Colours--------------------------
@@ -157,7 +160,6 @@ let g:floaterm_width=0.8
 "\\\\\\\\\\\\\\\\\\\\\\\\\_______//////////////////////////
 
 "///////////////////////////COC\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-" Coc.nvim
 set cmdheight=2
 set signcolumn=yes
 autocmd CursorHold * silent call CocActionAsync('highlight')
@@ -221,8 +223,6 @@ EOF
 "\\\\\\\\\\\\\\\\\\\\\\\\__________/////////////////////////
 
 "/////////////////////////Telescope\\\\\\\\\\\\\\\\\\\\\\\\\
-" Telescope
-" Find files using Telescope command-line sugar.
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fc <cmd>Telescope current_buffer_fuzzy_find<cr>
@@ -230,7 +230,7 @@ nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <leader>fn <cmd>Telescope neoclip plus<cr><Esc>
 lua <<EOF
---require('telescope').load_extension('fzf')
+require('telescope').load_extension('fzf')
 require('telescope').setup {
     pickers = {
         find_files = {
@@ -255,16 +255,22 @@ require('telescope').setup {
     },
     mappings = {
         i = {
-            ["<C-j>"] = "Down",
-            ["<C-k>"] = "Up",
+            ["<C-j>"] = "<C-n>",
+            ["<C-k>"] = "<C-p>",
         }
     }
 }
+EOF
+"\\\\\\\\\\\\\\\\\\\\\\\\\_________/////////////////////////
+
+"///////////////////////////Lua\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+lua <<EOF
 require('nvim-web-devicons').setup {
     default = true;
 }
+require('which-key').setup {}
 EOF
-"\\\\\\\\\\\\\\\\\\\\\\\\\_________/////////////////////////
+"\\\\\\\\\\\\\\\\\\\\\\\\\\\___/////////////////////////////
 
 "////////////////////////Vimspector\\\\\\\\\\\\\\\\\\\\\\\\\
 let g:vimspector_code_minwidth = 90
