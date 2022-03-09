@@ -28,34 +28,37 @@ set mouse=a             " enable mouse support
 set ignorecase          " case insensitive search unless capital letters are used
 set smartcase           " 
 set nrformats+=alpha    " increment letters
-
 "===========================================================
 "--------------------------Keymaps--------------------------
 "===========================================================
 inoremap jk <Esc>
+let mapleader = " "
+" navigating plugins
 inoremap <expr> <C-j> pumvisible() ? "\<C-N>" : "\<C-j>"
 inoremap <expr> <C-k> pumvisible() ? "\<C-P>" : "\<C-k>"
 inoremap <silent><expr> <Tab> pumvisible() ? coc#_select_confirm() : "\<Tab>"
-let mapleader = " "
 nnoremap <F1> <C-w>w
-" For moving in insert mode
+" moving in insert mode
 inoremap <A-h> <Left>
 inoremap <A-j> <Down>
 inoremap <A-k> <Up>
 inoremap <A-l> <Right>
-" for moving around windows
+" moving around windows
 map <A-H> <C-w>h
 map <A-J> <C-w>j
 map <A-K> <C-w>k
 map <A-L> <C-w>l
+" moving around tabs
 nnoremap <F2> gT
 nnoremap <F3> gt
+" closing stuff
+nnoremap <leader>xt :wa<cr>:tabclose<cr>
+nnoremap <leader>xx :wa<cr>:qa<cr>
+nnoremap <leader>xq :qa!<cr>
 :command Cheat tabedit ~/.config/nvim/cheatsheet.vim
-
 "===========================================================
 "--------------------------Plugins--------------------------
 "===========================================================
-
 " making sure vim-plug is installed
 if ! filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim"'))
 	echo "Downloading junegunn/vim-plug to manage plugins..."
@@ -63,7 +66,7 @@ if ! filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autolo
 	silent !curl "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" > ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim
 	autocmd VimEnter * PlugInstall
 endif
-
+" Vim-plug
 call plug#begin('~/.config/nvim/plugged')
 " --Theme--
 Plug 'marko-cerovac/material.nvim'
@@ -118,18 +121,15 @@ Plug 'preservim/tagbar'
 " --Kotlin--
 Plug 'udalov/kotlin-vim'
 call plug#end()
-
 "===========================================================
 "--------------------------Colours--------------------------
 "===========================================================
-
 colorscheme material
 let g:material_style = 'oceanic'
-
 "===========================================================
 "-----------------------Plugin Setups-----------------------
 "===========================================================
-" Airline
+"//////////////////////////Airline\\\\\\\\\\\\\\\\\\\\\\\\\\
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#show_splits = 0
 let g:airline_theme='deus'
@@ -137,17 +137,16 @@ let g:airline#extensions#hunks#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 set updatetime=100
 set noshowmode
+"\\\\\\\\\\\\\\\\\\\\\\\\\\______//////////////////////////
 
-" Lua script
-lua require('lars-vc')
-
-" NERD tree
+"/////////////////////////NERDtree\\\\\\\\\\\\\\\\\\\\\\\\\\
 autocmd VimEnter * NERDTree | wincmd p
 autocmd VimEnter * if argc() == 1 | execute 'NERDTree' | wincmd p | endif
 autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
 " autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+"\\\\\\\\\\\\\\\\\\\\\\\\\_______//////////////////////////
 
-" Floatterm
+"/////////////////////////Floatterm\\\\\\\\\\\\\\\\\\\\\\\\\
 " Save all tabs when opening terminal
 nnoremap   <silent>   <F12>   :wa<CR>:FloatermToggle<CR>
 tnoremap   <silent>   <F12>   <C-\><C-n>:FloatermToggle<CR>
@@ -155,11 +154,9 @@ nnoremap   <silent>   ²   :wa<CR>:FloatermToggle<CR>
 tnoremap   <silent>   ²   <C-\><C-n>:FloatermToggle<CR>
 let g:floaterm_height=0.95
 let g:floaterm_width=0.8
+"\\\\\\\\\\\\\\\\\\\\\\\\\________/////////////////////////
 
-" Gitgutter
-" Disable the signs on boot
-:au VimEnter * :GitGutterSignsDisable
-
+"///////////////////////////COC\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 " Coc.nvim
 set cmdheight=2
 set signcolumn=yes
@@ -176,7 +173,7 @@ nmap <silent> <leader>cy <Plug>(coc-type-definition)
 nmap <silent> <leader>ci <Plug>(coc-implementation)
 nmap <silent> <leader>cr <Plug>(coc-references)
 nnoremap <silent> <leader>ct :call <SID>show_documentation()<CR>
-" show documentation on hover and ct
+" show documentation on hover and SPC ct
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
@@ -198,11 +195,9 @@ nmap <leader>cf  <Plug>(coc-fix-current)
 nmap <leader>cl  <Plug>(coc-codelens-action)
 " Extensions
 let g:coc_global_extensions = ["coc-clangd", "coc-html", "coc-java", "coc-json", "coc-kotlin", "coc-pyright", "coc-rls", "coc-tsserver"]
+"\\\\\\\\\\\\\\\\\\\\\\\\\\\___/////////////////////////////
 
-" Nerd tree icons
-set conceallevel=3
-
-" Treesitter enable highlight
+"////////////////////////Treesitter\\\\\\\\\\\\\\\\\\\\\\\\\
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
     highlight = {
@@ -222,12 +217,10 @@ require'nvim-treesitter.configs'.setup {
         },
     },
 }
-  
-require('neoclip').setup({
-    --enable_persistant_history = true,
-})
 EOF
+"\\\\\\\\\\\\\\\\\\\\\\\\__________/////////////////////////
 
+"/////////////////////////Telescope\\\\\\\\\\\\\\\\\\\\\\\\\
 " Telescope
 " Find files using Telescope command-line sugar.
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
@@ -267,12 +260,13 @@ require('telescope').setup {
     }
 }
 EOF
+"\\\\\\\\\\\\\\\\\\\\\\\\\_________/////////////////////////
 
-" Vimspector
+"////////////////////////Vimspector\\\\\\\\\\\\\\\\\\\\\\\\\
 let g:vimspector_code_minwidth = 90
 let g:vimspector_terminal_maxwidth = 75
 let g:vimspector_terminal_minwidth = 20
-" Debug window setup (hacky but works)
+" Debug launch window setup (hacky but works)
 nmap <leader>dd :call vimspector#Launch()<CR>:NERDTreeClose<CR>2<C-w>j:q<CR> 
 nmap <leader>dx :call vimspector#Reset()<CR>
 nnoremap <leader>dX :call vimspector#ClearBreakpoints()<CR>
@@ -284,33 +278,36 @@ nnoremap <leader>dn :call vimspector#Continue()<CR>
 nnoremap <leader>drc :call vimspector#RunToCursor()<CR>
 nnoremap <leader>dh :call vimspector#ToggleBreakpoint()<CR>
 nnoremap <leader>de :call vimspector#ToggleConditionalBreakpoint()<CR>
+let g:vimspector_install_gadgets = ['debugpy', 'vscode-cpptools', 'CodeLLDB', 'vscode-node-debug2']
 " for normal mode - the word under the cursor
 nmap <Leader>di <Plug>VimspectorBalloonEval
 " for visual mode, the visually selected text
 xmap <Leader>di <Plug>VimspectorBalloonEval
-let g:vimspector_install_gadgets = [ 'debugpy', 'vscode-cpptools', 'CodeLLDB', 'vscode-node-debug2' ]
+"\\\\\\\\\\\\\\\\\\\\\\\\__________/////////////////////////
 
+"///////////////////////Vim-fugitive\\\\\\\\\\\\\\\\\\\\\\\\
+nnoremap <leader>gg :Git 
+nnoremap <leader>gs :Git<CR>
+nnoremap <leader>gp :Git push<CR>
+nnoremap <leader>gc :Git commit -a -m ""<Left>
+" for merge conflicts
+nnoremap <leader>gh :diffget //2<CR>
+nnoremap <leader>gl :diffget //3<CR>
+"\\\\\\\\\\\\\\\\\\\\\\\____________////////////////////////
+
+"//////////////////////////Other\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+" Autopair
+let g:AutoPairsCenterLine = 0
+" Gitgutter
+:au VimEnter * :GitGutterSignsDisable
+" Lua script
+lua require('lars-vc')
+" Nerd tree icons
+set conceallevel=3
+" Prolog
+au FileType perl set filetype=prolog
 " TagBar
 nnoremap <F8> :TagbarToggle<CR>
 let g:tagbar_map_nexttag = '<C-j>'
 let g:tagbar_map_prevtag = '<C-k>'
-
-" Closing stuff
-nnoremap <leader>xt :wa<cr>:tabclose<cr>
-nnoremap <leader>xx :wa<cr>:qa<cr>
-nnoremap <leader>xq :qa!<cr>
-
-" Autopair
-let g:AutoPairsCenterLine = 0
-
-" Vim-fugitive
-nnoremap <leader>gg :G 
-nnoremap <leader>gs :G<CR>
-nnoremap <leader>gp :Git push<CR>
-nnoremap <leader>gc :G coma ""<Left>
-" for merge conflicts
-nnoremap <leader>gh :diffget //2<CR>
-nnoremap <leader>gl :diffget //3<CR>
-
-" PROLOG
-au FileType perl set filetype=prolog
+"\\\\\\\\\\\\\\\\\\\\\\\\\\_____////////////////////////////
