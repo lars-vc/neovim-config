@@ -330,6 +330,8 @@ nnoremap <leader>gl :diffget //3<CR>
 nnoremap <leader>mp :MarkdownPreview<CR>
 nnoremap <leader>ms :MarkdownPreviewStop<CR>
 nnoremap <leader>mt :MarkdownPreviewToggle<CR>
+" take first spellingfix
+nnoremap <leader>s 1z=
 let g:vim_markdown_folding_disabled = 1
 autocmd FileType markdown setlocal spell
 "\\\\\\\\\\\\\\\\\\\\\\\\\________//////////////////////////
