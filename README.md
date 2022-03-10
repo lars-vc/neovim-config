@@ -78,11 +78,12 @@ On different pc fzf extension for telescope doesn't work, fix is to comment that
 
 ## Minor annoyances to fix
 * Telescope keybinds
-* Floatterm cutting off output
+* Floaterm cutting off output
+* Folds in markdown
+* Spellcheck dutch
 
 ## Maybelookats
 * [octo](https://github.com/pwntester/octo.nvim)
 * [himalaya](https://github.com/soywod/himalaya)
 * [agenda](https://github.com/dhruvasagar/vim-dotoo)
 * [org-mode](https://github.com/vimoutliner/vimoutliner)
-* [markdown](https://github.com/iamcco/markdown-preview.nvim)

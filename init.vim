@@ -125,6 +125,9 @@ Plug 'udalov/kotlin-vim'
 Plug 'folke/which-key.nvim'
 " --Aligning text--
 Plug 'godlygeek/tabular'
+" --Markdown
+Plug 'preservim/vim-markdown'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 call plug#end()
 "===========================================================
 "--------------------------Colours--------------------------
@@ -148,6 +151,12 @@ set noshowmode
 autocmd VimEnter * NERDTree | wincmd p
 autocmd VimEnter * if argc() == 1 | execute 'NERDTree' | wincmd p | endif
 autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
+nnoremap <leader>nt :NERDTreeMirrorToggle<CR>
+nnoremap <leader>nc :NERDTreeClose<CR>
+nnoremap <leader>no :NERDTreeMirrorOpen<CR>
+nnoremap <leader>nat :NERDTreeTabsToggle<CR>
+nnoremap <leader>nac :NERDTreeTabsClose<CR>
+nnoremap <leader>nao :NERDTreeTabsOpen<CR>
 " autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 "\\\\\\\\\\\\\\\\\\\\\\\\\_______//////////////////////////
 
@@ -273,7 +282,14 @@ lua <<EOF
 require('nvim-web-devicons').setup {
     default = true;
 }
-require('which-key').setup {}
+require('which-key').setup {
+    plugins = {
+        spelling = {
+            enabled = true,
+            suggestions = 20,
+        }
+    }
+}
 EOF
 "\\\\\\\\\\\\\\\\\\\\\\\\\\\___/////////////////////////////
 
@@ -309,6 +325,14 @@ nnoremap <leader>gc :Git commit -a -m ""<Left>
 nnoremap <leader>gh :diffget //2<CR>
 nnoremap <leader>gl :diffget //3<CR>
 "\\\\\\\\\\\\\\\\\\\\\\\____________////////////////////////
+
+"/////////////////////////Markdown\\\\\\\\\\\\\\\\\\\\\\\\\\
+nnoremap <leader>mp :MarkdownPreview<CR>
+nnoremap <leader>ms :MarkdownPreviewStop<CR>
+nnoremap <leader>mt :MarkdownPreviewToggle<CR>
+let g:vim_markdown_folding_disabled = 1
+autocmd FileType markdown setlocal spell
+"\\\\\\\\\\\\\\\\\\\\\\\\\________//////////////////////////
 
 "//////////////////////////Other\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 " Autopair
