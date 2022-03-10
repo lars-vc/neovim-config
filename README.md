@@ -24,7 +24,7 @@ Finally run nvim, you will get a lot of errors on startup but this is normal! Ru
 ```
 :PlugInstall
 ```
-in neovim, close and relaunch
+in Neovim, close and relaunch
 
 ## Dependencies
 
@@ -33,7 +33,7 @@ in neovim, close and relaunch
 Any Nerd Font should probably work
 
 ### Wakatime
-Fill in your [API-key](https://wakatime.com/settings/api-key) when the plugin asks for it
+Fill in your [API key](https://wakatime.com/settings/api-key) when the plugin asks for it
 
 ### Node
 ```
@@ -60,7 +60,7 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githu
 sudo apt update
 sudo apt install gh
 ```
-also setup gh auth
+also setup `gh auth`
 
 ### Neoclip
 ```
