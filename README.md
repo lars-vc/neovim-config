@@ -19,12 +19,11 @@ mkdir -p ~/.config/nvim/
 cd ~/.config/nvim/
 git clone https://github.com/lars-vc/neovim-config .
 ```
-
 Finally run nvim, you will get a lot of errors on startup but this is normal! Run:
 ```
 :PlugInstall
 ```
-in Neovim, close and relaunch
+in Neovim, then close and relaunch
 
 ## Dependencies
 
@@ -74,12 +73,13 @@ sudo apt install ripgrep
 ```
 
 ## Known Problems
-On different pc fzf extension for telescope doesn't work, fix is to comment that part out
+On different pc fzf extension for telescope doesn't work, fix is to comment that part out.
 
 ## Minor annoyances to fix
 * Telescope keybinds
 * Floaterm cutting off output
 * Folds in markdown
+* Bullet points in markdown being 1 tab level deeper
 
 ## Maybelookats
 * [octo](https://github.com/pwntester/octo.nvim)
