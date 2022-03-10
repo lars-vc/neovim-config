@@ -85,3 +85,4 @@ On different pc fzf extension for telescope doesn't work, fix is to comment that
 * [himalaya](https://github.com/soywod/himalaya)
 * [agenda](https://github.com/dhruvasagar/vim-dotoo)
 * [org-mode](https://github.com/vimoutliner/vimoutliner)
+* [markdown](https://github.com/iamcco/markdown-preview.nvim)
