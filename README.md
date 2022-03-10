@@ -30,7 +30,7 @@ in neovim, close and relaunch
 
 ### Font
 [DejaVuSansMono Nerd Font Mono](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/DejaVuSansMono/Regular/complete)
-Any NerdFont should probably work
+Any Nerd Font should probably work
 
 ### Wakatime
 Fill in your [API-key](https://wakatime.com/settings/api-key) when the plugin asks for it
@@ -80,7 +80,6 @@ On different pc fzf extension for telescope doesn't work, fix is to comment that
 * Telescope keybinds
 * Floaterm cutting off output
 * Folds in markdown
-* Spellcheck dutch
 
 ## Maybelookats
 * [octo](https://github.com/pwntester/octo.nvim)
