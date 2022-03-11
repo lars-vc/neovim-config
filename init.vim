@@ -287,6 +287,7 @@ EOF
 
 "/////////////////////////Whichkey\\\\\\\\\\\\\\\\\\\\\\\\\\
 lua <<EOF
+--documenting which key
 require('which-key').setup {
     plugins = {
         spelling = {
@@ -295,7 +296,6 @@ require('which-key').setup {
         }
     }
 }
-
 require('which-key').register ({
     ["<leader>"] = {
         f = {
@@ -335,10 +335,10 @@ require('which-key').register ({
             name = "+git",
             c = "coma",
             s = "status",
-            g = "any cmd",
+            g = "git cmd",
             p = "push",
-            h = "mergeconflict pick left",
-            l = "mergeconflict pick right"
+            h = "merge-conflict pick left",
+            l = "merge-conflict pick right"
         },
         s = "quick spellfix",
         t = "tabular cmd",
@@ -382,7 +382,27 @@ require('which-key').register ({
             q = "quit nvim"
         }
     }
-})
+}, {mode = "n"})
+require('which-key').register({
+    ["<leader>"] = {
+        c = {
+            name = "+coc",
+            a = "code actions"
+        },
+        d = {
+            name = "+vimspector",
+            i = "balloon eval"
+        },
+        h = {
+            name = "+gitgutter",
+        },
+        m = {
+            name = "+markdown",
+            h = "header decrease",
+            l = "header increase",
+        }
+    }
+}, {mode = "v"})
 EOF
 "\\\\\\\\\\\\\\\\\\\\\\\\\________//////////////////////////
 
