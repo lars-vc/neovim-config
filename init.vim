@@ -330,7 +330,7 @@ require('which-key').register ({
             r = "restart debugger",
             x = "quit debugger",
             X = "clear all breakpoints",
-            i = "balloon eval"
+            i = "balloon eval",
             g = "goto current line"
         },
         g = {
