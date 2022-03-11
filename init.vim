@@ -176,7 +176,7 @@ set cmdheight=2
 set signcolumn=yes
 autocmd CursorHold * silent call CocActionAsync('highlight')
 " Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
+nmap <leader>cn <Plug>(coc-rename)
 " Autoformatting with coc
 let g:python3_host_prog="/usr/bin/python3"
 au BufWrite * :call CocAction('format')
@@ -282,6 +282,11 @@ lua <<EOF
 require('nvim-web-devicons').setup {
     default = true;
 }
+EOF
+"\\\\\\\\\\\\\\\\\\\\\\\\\\\___/////////////////////////////
+
+"/////////////////////////Whichkey\\\\\\\\\\\\\\\\\\\\\\\\\\
+lua <<EOF
 require('which-key').setup {
     plugins = {
         spelling = {
@@ -290,8 +295,96 @@ require('which-key').setup {
         }
     }
 }
+
+require('which-key').register ({
+    ["<leader>"] = {
+        f = {
+            name = "+telescope",
+            f = "find files",
+            b = "find buffer",
+            c = "search in buffer",
+            g = "search in all files",
+            h = "help tags",
+            n = "neoclip"
+        },
+        c = {
+            name = "+coc",
+            a = "code actions",
+            l = "codelens actions",
+            d = "goto definition",
+            y = "goto type-definition",
+            i = "goto implementation",
+            f = "quick fix",
+            r = "show references",
+            n = "rename var",
+            t = "show documentation"
+        },
+        d = {
+            name = "+vimspector",
+            d = "launch debugger",
+            h = "toggle breakpoint",
+            e = "toggle cond breakpoint",
+            n = "continue running",
+            c = "run til cursor",
+            r = "restart debugger",
+            x = "quit debugger",
+            X = "clear all breakpoints",
+            i = "balloon eval"
+        },
+        g = {
+            name = "+git",
+            c = "coma",
+            s = "status",
+            g = "any cmd",
+            p = "push",
+            h = "mergeconflict pick left",
+            l = "mergeconflict pick right"
+        },
+        s = "quick spellfix",
+        t = "tabular cmd",
+        h = {
+            name = "+gitgutter"
+        },
+        m = {
+            name = "+markdown",
+            h = "header decrease",
+            l = "header increase",
+            t = "format table",
+            i = {
+                name = "+inserttoc",
+                c = "custom toc",
+                i = "regular toc",
+                n = "toc with numbers"
+            },
+            p = {
+                name = "+preview",
+                o = "open preview",
+                c = "close preview",
+                t = "toggle preview"
+            }
+        },
+        n = {
+            name = "+nerdtree",
+            o = "open mirror tree",
+            c = "close tree",
+            t = "toggle mirror tree",
+            a = {
+                name = "+alltabs",
+                o = "open all trees",
+                c = "close all trees",
+                t = "toggle all trees"
+            }
+        },
+        x = {
+            name = "+closing",
+            x = "save all and quit nvim",
+            t = "save all and close tab",
+            q = "quit nvim"
+        }
+    }
+})
 EOF
-"\\\\\\\\\\\\\\\\\\\\\\\\\\\___/////////////////////////////
+"\\\\\\\\\\\\\\\\\\\\\\\\\________//////////////////////////
 
 "////////////////////////Vimspector\\\\\\\\\\\\\\\\\\\\\\\\\
 let g:vimspector_code_minwidth = 90
@@ -304,9 +397,9 @@ nnoremap <leader>dX :call vimspector#ClearBreakpoints()<CR>
 nnoremap <S-k> :call vimspector#StepOut()<CR>
 nnoremap <S-l> :call vimspector#StepInto()<CR>
 nnoremap <S-j> :call vimspector#StepOver()<CR>
-nnoremap <leader>d_ :call vimspector#Restart()<CR>
+nnoremap <leader>dr :call vimspector#Restart()<CR>
 nnoremap <leader>dn :call vimspector#Continue()<CR>
-nnoremap <leader>dr :call vimspector#RunToCursor()<CR>
+nnoremap <leader>dc :call vimspector#RunToCursor()<CR>
 nnoremap <leader>dh :call vimspector#ToggleBreakpoint()<CR>
 nnoremap <leader>de :call vimspector#ToggleConditionalBreakpoint()<CR>
 let g:vimspector_install_gadgets = ['debugpy', 'vscode-cpptools', 'CodeLLDB', 'vscode-node-debug2']
@@ -327,8 +420,8 @@ nnoremap <leader>gl :diffget //3<CR>
 "\\\\\\\\\\\\\\\\\\\\\\\____________////////////////////////
 
 "/////////////////////////Markdown\\\\\\\\\\\\\\\\\\\\\\\\\\
-nnoremap <leader>mpp :MarkdownPreview<CR>
-nnoremap <leader>mps :MarkdownPreviewStop<CR>
+nnoremap <leader>mpo :MarkdownPreview<CR>
+nnoremap <leader>mpc :MarkdownPreviewStop<CR>
 nnoremap <leader>mpt :MarkdownPreviewToggle<CR>
 " take first spellingfix
 nnoremap <leader>s 1z=
