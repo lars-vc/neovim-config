@@ -129,7 +129,6 @@ On different pc fzf extension for telescope doesn't work, fix is to comment that
 * Telescope key binds
 * Floaterm cutting off output
 * Folds in markdown
-* Bullet points in markdown being 1 tab level deeper
 
 ## Maybelookats
 * [octo](https://github.com/pwntester/octo.nvim)
