@@ -56,7 +56,7 @@ nnoremap <F2> gT
 nnoremap <F3> gt
 " closing stuff
 nnoremap <leader>xt :wa<cr>:tabclose<cr>
-nnoremap <leader>xx :wa<cr>:qa<cr>
+nnoremap <leader>xx :wqa<cr>
 nnoremap <leader>xq :qa!<cr>
 :command Cheat tabedit ~/.config/nvim/cheatsheet.vim
 "===========================================================
@@ -322,6 +322,7 @@ require('which-key').register ({
         d = {
             name = "+vimspector",
             d = "launch debugger",
+            b = "breakpoint menu",
             h = "toggle breakpoint",
             e = "toggle cond breakpoint",
             n = "continue running",
@@ -330,6 +331,7 @@ require('which-key').register ({
             x = "quit debugger",
             X = "clear all breakpoints",
             i = "balloon eval"
+            g = "goto current line"
         },
         g = {
             name = "+git",
@@ -422,6 +424,8 @@ nnoremap <leader>dn :call vimspector#Continue()<CR>
 nnoremap <leader>dc :call vimspector#RunToCursor()<CR>
 nnoremap <leader>dh :call vimspector#ToggleBreakpoint()<CR>
 nnoremap <leader>de :call vimspector#ToggleConditionalBreakpoint()<CR>
+nmap <leader>db <Plug>VimspectorBreakpoints
+nmap <leader>dg <Plug>VimspectorGoToCurrentLine
 let g:vimspector_install_gadgets = ['debugpy', 'vscode-cpptools', 'CodeLLDB', 'vscode-node-debug2']
 " for normal mode - the word under the cursor
 nmap <Leader>di <Plug>VimspectorBalloonEval
