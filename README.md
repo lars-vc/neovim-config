@@ -1,6 +1,19 @@
 # NeoVim configfiles
 
-[toc]
+* [Install](#install)
+* [Dependencies](#dependencies)
+  * [Font](#font)
+  * [Wakatime](#wakatime)
+  * [Node](#node)
+  * [Python3](#python3)
+  * [Tag bar](#tag-bar)
+  * [Git](#git)
+  * [Neoclip](#neoclip)
+  * [Other stuff](#other-stuff)
+* [Known Problems](#known-problems)
+* [All plugins](#all-plugins)
+* [Minor annoyances to fix](#minor-annoyances-to-fix)
+* [Maybelookats](#maybelookats)
 
 ## Install
 First install [NeoVim](https://github.com/neovim/neovim), this can be done like so:
@@ -113,7 +126,7 @@ On different pc fzf extension for telescope doesn't work, fix is to comment that
     * [Markdown preview](https://github/iamcco/markdown-preview.nvim/)
 
 ## Minor annoyances to fix
-* Telescope keybinds
+* Telescope key binds
 * Floaterm cutting off output
 * Folds in markdown
 * Bullet points in markdown being 1 tab level deeper

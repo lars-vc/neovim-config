@@ -28,7 +28,7 @@ set mouse=a             " enable mouse support
 set ignorecase          " case insensitive search unless capital letters are used
 set smartcase           " 
 set nrformats+=alpha    " increment letters
-set timeoutlen=500      " for whichkey to show up quicker
+set timeoutlen=555      " for whichkey to show up quicker
 set spelllang=en,nl     " spelling for certain files
 "===========================================================
 "--------------------------Keymaps--------------------------
@@ -306,7 +306,7 @@ nnoremap <S-l> :call vimspector#StepInto()<CR>
 nnoremap <S-j> :call vimspector#StepOver()<CR>
 nnoremap <leader>d_ :call vimspector#Restart()<CR>
 nnoremap <leader>dn :call vimspector#Continue()<CR>
-nnoremap <leader>drc :call vimspector#RunToCursor()<CR>
+nnoremap <leader>dr :call vimspector#RunToCursor()<CR>
 nnoremap <leader>dh :call vimspector#ToggleBreakpoint()<CR>
 nnoremap <leader>de :call vimspector#ToggleConditionalBreakpoint()<CR>
 let g:vimspector_install_gadgets = ['debugpy', 'vscode-cpptools', 'CodeLLDB', 'vscode-node-debug2']
@@ -327,12 +327,25 @@ nnoremap <leader>gl :diffget //3<CR>
 "\\\\\\\\\\\\\\\\\\\\\\\____________////////////////////////
 
 "/////////////////////////Markdown\\\\\\\\\\\\\\\\\\\\\\\\\\
-nnoremap <leader>mp :MarkdownPreview<CR>
-nnoremap <leader>ms :MarkdownPreviewStop<CR>
-nnoremap <leader>mt :MarkdownPreviewToggle<CR>
+nnoremap <leader>mpp :MarkdownPreview<CR>
+nnoremap <leader>mps :MarkdownPreviewStop<CR>
+nnoremap <leader>mpt :MarkdownPreviewToggle<CR>
 " take first spellingfix
 nnoremap <leader>s 1z=
-let g:vim_markdown_folding_disabled = 1
+nnoremap <leader>mh  :HeaderDecrease<CR>
+nnoremap <leader>ml  :HeaderIncrease<CR>
+xnoremap <leader>mh  :HeaderDecrease<CR>
+xnoremap <leader>ml  :HeaderIncrease<CR>
+nnoremap <leader>mt  :TableFormat<CR>
+nnoremap <leader>mii :InsertToc<CR>
+nnoremap <leader>min :InsertNToc<CR>
+nnoremap <leader>mic :InsertToc
+" Tabular
+nnoremap <leader>t :Tabular /
+xnoremap <leader>t :Tabular /
+let g:vim_markdown_conceal_code_blocks = 0
+let g:vim_markdown_new_list_item_indent = 0
+let g:vim_markdown_edit_url_in = 'tab'
 autocmd FileType markdown setlocal spell
 "\\\\\\\\\\\\\\\\\\\\\\\\\________//////////////////////////
 
