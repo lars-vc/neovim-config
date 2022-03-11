@@ -1,5 +1,7 @@
 # NeoVim configfiles
 
+[toc]
+
 ## Install
 First install [NeoVim](https://github.com/neovim/neovim), this can be done like so:
 ```
@@ -23,7 +25,7 @@ Finally run nvim, you will get a lot of errors on startup but this is normal! Ru
 ```
 :PlugInstall
 ```
-in Neovim, then close and relaunch
+in NeoVim, then close and relaunch
 
 ## Dependencies
 
@@ -48,7 +50,7 @@ sudo apt install python3
 sudo apt install python3-pip
 ```
 
-### Tagbar
+### Tag bar
 ```
 sudo apt install exuberant-ctags
 ```
@@ -74,6 +76,41 @@ sudo apt install ripgrep
 
 ## Known Problems
 On different pc fzf extension for telescope doesn't work, fix is to comment that part out.
+
+## All plugins
+
+* [Material theme](https://github.com/marko-cerovac/material.nvim/)
+* [Telescope](https://github.com/nvim-telescope/telescope.nvim/)
+    * [Plenary](https://github.com/nvim-lua/plenary.nvim/)
+    * [fzf extension](https://github.com/nvim-telescope/telescope-fzf-native.nvim')
+    * [Icons in Telescope](https://github.com/kyazdani42/nvim-web-devicons/)
+* [Airline status bar](https://github.com/vim-airline/vim-airline/)
+    * [Airline themes](https://github.com/vim-airline/vim-airline-themes/)
+* [Fugitive git wrapper](https://github.com/tpope/vim-fugitive/)
+* [Conquer of Completion](https://github.com/neoclide/coc.nvim)
+* [NERDtree](https://github.com/preservim/nerdtree/)
+    * [Colour in NERDtree](https://github.com/tiagofumo/vim-nerdtree-syntax-highlight/)
+    * [Icons in NERDtree](https://github.com/ryanoasis/vim-devicons/)
+    * [Close all NERDtree buffers at once](https://github/jistr/vim-nerdtree-tabs/)
+* [Smooth scrolling](https://github.com/psliwka/vim-smoothie/)
+* [Floating Terminal](https://github.com/voldikss/vim-floaterm/)
+* [Bracket matching](https://github.com/jiangmiao/auto-pairs/)
+* [Tree sitter](https://github.com/nvim-treesitter/nvim-treesitter)
+* [Easier commenting](https://github.com/tpope/vim-commentary/)
+* [Git gutter](https://github.com/airblade/vim-gitgutter/)
+* [Wakatime](https://github.com/wakatime/vim-wakatime/)
+* [Debugging](https://github.com/puremourning/vimspector/)
+* [Moving around files with light speed](https://github.com/ggandor/lightspeed.nvim/)
+    * [Repeating actions](https://github.com/tpope/vim-repeat/)
+* [Visual clipboard](https://github/AckslD/nvim-neoclip.lua/)
+    * [Persisting clipboard](https://github/tami5/sqlite.lua/)
+* [Key practise](https://github/ThePrimeagen/vim-be-good/)
+* [Tag bar](https://github/preservim/tagbar/)
+* [Kotlin syntax highlighting](https://github/udalov/kotlin-vim/)
+* [Which key](https://github/folke/which-key.nvim/)
+* [Tabular](https://github/godlygeek/tabular/)
+* [Markdown additions](https://github/preservim/vim-markdown/)
+    * [Markdown preview](https://github/iamcco/markdown-preview.nvim/)
 
 ## Minor annoyances to fix
 * Telescope keybinds

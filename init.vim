@@ -29,7 +29,7 @@ set ignorecase          " case insensitive search unless capital letters are use
 set smartcase           " 
 set nrformats+=alpha    " increment letters
 set timeoutlen=500      " for whichkey to show up quicker
-set spelllang=en,nl
+set spelllang=en,nl     " spelling for certain files
 "===========================================================
 "--------------------------Keymaps--------------------------
 "===========================================================
