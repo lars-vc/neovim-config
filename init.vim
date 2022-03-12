@@ -130,6 +130,8 @@ Plug 'godlygeek/tabular'
 Plug 'preservim/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 call plug#end()
+" load lua files
+lua require('lars-vc')
 "===========================================================
 "--------------------------Colours--------------------------
 "===========================================================
@@ -210,29 +212,6 @@ nmap <leader>cl  <Plug>(coc-codelens-action)
 let g:coc_global_extensions = ["coc-clangd", "coc-html", "coc-java", "coc-json", "coc-kotlin", "coc-pyright", "coc-rls", "coc-tsserver"]
 "\\\\\\\\\\\\\\\\\\\\\\\\\\\___/////////////////////////////
 
-"////////////////////////Treesitter\\\\\\\\\\\\\\\\\\\\\\\\\
-lua <<EOF
-require'nvim-treesitter.configs'.setup {
-    highlight = {
-        enable = true,
-        custom_captures = {
-                ["foo.bar"] = "Identifier",
-        },
-        additional_vim_regex_highlighting = false,
-    },
-    incremental_selection = {
-        enable = true,
-        keymaps = {
-            init_selection = "gnn",
-            node_incremental = "grn",
-            scope_incremental = "grc",
-            node_decremental = "grm",
-        },
-    },
-}
-EOF
-"\\\\\\\\\\\\\\\\\\\\\\\\__________/////////////////////////
-
 "/////////////////////////Telescope\\\\\\\\\\\\\\\\\\\\\\\\\
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
@@ -240,173 +219,8 @@ nnoremap <leader>fc <cmd>Telescope current_buffer_fuzzy_find<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <leader>fn <cmd>Telescope neoclip plus<cr><Esc>
-lua <<EOF
-require('telescope').load_extension('fzf')
-require('telescope').setup {
-    pickers = {
-        find_files = {
-            path_display = {"truncate"},
-            color_devicons=true,
-        },
-        live_grep = {
-            path_display = {"shorten"},
-        },
-    },
-    defaults = {
-        layout_config = {
-            horizontal = {
-                height= 0.95,
-                width= 0.95,
-            },
-            center = {
-                height= 0.95,
-                width= 0.95,
-            }
-        },
-    },
-    mappings = {
-        i = {
-            ["<C-j>"] = "<C-n>",
-            ["<C-k>"] = "<C-p>",
-        }
-    }
-}
-require('neoclip').setup {
-    enable_persistent_history = true
-}
-EOF
+nnoremap <leader>fi <cmd>Telescope find_files cwd=~/.config/nvim<cr>
 "\\\\\\\\\\\\\\\\\\\\\\\\\_________/////////////////////////
-
-"///////////////////////////Lua\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-lua <<EOF
-require('nvim-web-devicons').setup {
-    default = true;
-}
-EOF
-"\\\\\\\\\\\\\\\\\\\\\\\\\\\___/////////////////////////////
-
-"/////////////////////////Whichkey\\\\\\\\\\\\\\\\\\\\\\\\\\
-lua <<EOF
---documenting which key
-require('which-key').setup {
-    plugins = {
-        spelling = {
-            enabled = true,
-            suggestions = 20,
-        }
-    }
-}
-require('which-key').register ({
-    ["<leader>"] = {
-        f = {
-            name = "+telescope",
-            f = "find files",
-            b = "find buffer",
-            c = "search in buffer",
-            g = "search in all files",
-            h = "help tags",
-            n = "neoclip"
-        },
-        c = {
-            name = "+coc",
-            a = "code actions",
-            l = "codelens actions",
-            d = "goto definition",
-            y = "goto type-definition",
-            i = "goto implementation",
-            f = "quick fix",
-            r = "show references",
-            n = "rename var",
-            t = "show documentation"
-        },
-        d = {
-            name = "+vimspector",
-            d = "launch debugger",
-            b = "breakpoint menu",
-            h = "toggle breakpoint",
-            e = "toggle cond breakpoint",
-            n = "continue running",
-            c = "run til cursor",
-            r = "restart debugger",
-            x = "quit debugger",
-            X = "clear all breakpoints",
-            i = "balloon eval",
-            g = "goto current line"
-        },
-        g = {
-            name = "+git",
-            c = "coma",
-            s = "status",
-            g = "git cmd",
-            p = "push",
-            h = "merge-conflict pick left",
-            l = "merge-conflict pick right"
-        },
-        s = "quick spellfix",
-        t = "tabular cmd",
-        h = {
-            name = "+gitgutter"
-        },
-        m = {
-            name = "+markdown",
-            h = "header decrease",
-            l = "header increase",
-            t = "format table",
-            i = {
-                name = "+inserttoc",
-                c = "custom toc",
-                i = "regular toc",
-                n = "toc with numbers"
-            },
-            p = {
-                name = "+preview",
-                o = "open preview",
-                c = "close preview",
-                t = "toggle preview"
-            }
-        },
-        n = {
-            name = "+nerdtree",
-            o = "open mirror tree",
-            c = "close tree",
-            t = "toggle mirror tree",
-            a = {
-                name = "+alltabs",
-                o = "open all trees",
-                c = "close all trees",
-                t = "toggle all trees"
-            }
-        },
-        x = {
-            name = "+closing",
-            x = "save all and quit nvim",
-            t = "save all and close tab",
-            q = "quit nvim"
-        }
-    }
-}, {mode = "n"})
-require('which-key').register({
-    ["<leader>"] = {
-        c = {
-            name = "+coc",
-            a = "code actions"
-        },
-        d = {
-            name = "+vimspector",
-            i = "balloon eval"
-        },
-        h = {
-            name = "+gitgutter",
-        },
-        m = {
-            name = "+markdown",
-            h = "header decrease",
-            l = "header increase",
-        }
-    }
-}, {mode = "v"})
-EOF
-"\\\\\\\\\\\\\\\\\\\\\\\\\________//////////////////////////
 
 "////////////////////////Vimspector\\\\\\\\\\\\\\\\\\\\\\\\\
 let g:vimspector_code_minwidth = 90
@@ -483,5 +297,4 @@ nnoremap <F8> :TagbarToggle<CR>
 let g:tagbar_map_nexttag = '<C-j>'
 let g:tagbar_map_prevtag = '<C-k>'
 " Z Lua script
-" lua require('lars-vc')
 "\\\\\\\\\\\\\\\\\\\\\\\\\\_____////////////////////////////
