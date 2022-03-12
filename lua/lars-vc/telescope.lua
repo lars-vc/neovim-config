@@ -27,7 +27,7 @@ telescope.setup {
                 ["<C-k>"] = "move_selection_previous",
             },
             n = {
-                ["<C-c>"] = require('telescope.actions').close,
+                ["<C-c>"] = "close",
             }
         }
     },
