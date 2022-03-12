@@ -22,9 +22,9 @@ First install [NeoVim](https://github.com/neovim/neovim), this can be done like 
 sudo apt install neovim
 ```
 
-Sometimes the ubuntu version might run behind, fix that by adding this [ppa](https://code.launchpad.net/~neovim-ppa/+archive/ubuntu/unstable):
+Sometimes the ubuntu version might run behind, fix that by adding this [stable ppa](https://code.launchpad.net/~neovim-ppa/+archive/ubuntu/stable) or this [unstable ppa](https://code.launchpad.net/~neovim-ppa/+archive/ubuntu/unstable):
 ```
-sudo add-apt-repository ppa:neovim-ppa/unstable
+sudo add-apt-repository ppa:neovim-ppa/stable
 sudo apt update
 sudo apt upgrade
 ```
