@@ -21,16 +21,16 @@ telescope.setup {
                 width= 0.95,
             }
         },
-    },
-    mappings = {
-        i = {
-            ["<C-j>"] = "move_selection_next",
-            ["<C-k>"] = "move_selection_previous",
-        },
-        n = {
-            ["<C-c>"] = require('telescope.actions').close,
+        mappings = {
+            i = {
+                ["<C-j>"] = "move_selection_next",
+                ["<C-k>"] = "move_selection_previous",
+            },
+            n = {
+                ["<C-c>"] = require('telescope.actions').close,
+            }
         }
-    }
+    },
 }
 
 telescope.load_extension('fzf')

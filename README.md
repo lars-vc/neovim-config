@@ -1,5 +1,6 @@
 # NeoVim configfiles
 
+## TOC
 * [Install](#install)
 * [Dependencies](#dependencies)
   * [Font](#font)
@@ -126,9 +127,7 @@ On different pc fzf extension for telescope doesn't work, fix is to comment that
     * [Markdown preview](https://github/iamcco/markdown-preview.nvim/)
 
 ## Minor annoyances to fix
-* Telescope key binds
 * Floaterm cutting off output
-* Folds in markdown
 
 ## Maybelookats
 * [octo](https://github.com/pwntester/octo.nvim)
