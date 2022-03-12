@@ -1,13 +1,24 @@
 --documenting which key
-require('which-key').setup {
+local whichkey = require('which-key')
+whichkey.setup {
     plugins = {
         spelling = {
             enabled = true,
             suggestions = 20,
         }
+    },
+    presets = {
+      operators = false, -- adds help for operators like d, y, ... and registers them for motion / text object completion
+      motions = false, -- adds help for motions
+    },
+    key_labels = {
+        ["<space>"] = "SPC",
+        ["<leader>"] = "SPC",
+        ["<cr>"] = "RET",
+        ["<tab>"] = "TAB",
     }
 }
-require('which-key').register ({
+whichkey.register ({
     ["<leader>"] = {
         f = {
             name = "+telescope",
@@ -97,7 +108,8 @@ require('which-key').register ({
         }
     }
 }, {mode = "n"})
-require('which-key').register({
+
+whichkey.register({
     ["<leader>"] = {
         c = {
             name = "+coc",

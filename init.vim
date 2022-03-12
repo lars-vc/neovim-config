@@ -56,7 +56,7 @@ nnoremap <F2> gT
 nnoremap <F3> gt
 " closing stuff
 nnoremap <leader>xt :wa<cr>:tabclose<cr>
-nnoremap <leader>xx :wqa<cr>
+nnoremap <leader>xx :wa<cr>:qa<cr>
 nnoremap <leader>xq :qa!<cr>
 :command Cheat tabedit ~/.config/nvim/cheatsheet.vim
 "===========================================================
@@ -154,9 +154,9 @@ set noshowmode
 autocmd VimEnter * NERDTree | wincmd p
 autocmd VimEnter * if argc() == 1 | execute 'NERDTree' | wincmd p | endif
 autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
-nnoremap <leader>nt :NERDTreeMirrorToggle<CR>
-nnoremap <leader>nc :NERDTreeClose<CR>
-nnoremap <leader>no :NERDTreeMirrorOpen<CR>
+nnoremap <leader>nt  :NERDTreeMirrorToggle<CR>
+nnoremap <leader>nc  :NERDTreeClose<CR>
+nnoremap <leader>no  :NERDTreeMirrorOpen<CR>
 nnoremap <leader>nat :NERDTreeTabsToggle<CR>
 nnoremap <leader>nac :NERDTreeTabsClose<CR>
 nnoremap <leader>nao :NERDTreeTabsOpen<CR>
@@ -296,5 +296,4 @@ au FileType perl set filetype=prolog
 nnoremap <F8> :TagbarToggle<CR>
 let g:tagbar_map_nexttag = '<C-j>'
 let g:tagbar_map_prevtag = '<C-k>'
-" Z Lua script
 "\\\\\\\\\\\\\\\\\\\\\\\\\\_____////////////////////////////

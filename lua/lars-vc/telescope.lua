@@ -1,6 +1,6 @@
 local telescope = require('telescope')
 
-require('telescope').setup {
+telescope.setup {
     pickers = {
         find_files = {
             path_display = {"truncate"},
@@ -24,12 +24,18 @@ require('telescope').setup {
     },
     mappings = {
         i = {
-            ["<C-j>"] = "<C-n>",
-            ["<C-k>"] = "<C-p>",
+            ["<C-j>"] = "move_selection_next",
+            ["<C-k>"] = "move_selection_previous",
+        },
+        n = {
+            ["<C-c>"] = require('telescope.actions').close,
         }
     }
 }
+
+telescope.load_extension('fzf')
+
 require('neoclip').setup {
     enable_persistent_history = true
 }
-telescope.load_extension('fzf')
+
