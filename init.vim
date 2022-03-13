@@ -51,6 +51,10 @@ nnoremap <A-H> <C-w>h
 nnoremap <A-J> <C-w>j
 nnoremap <A-K> <C-w>k
 nnoremap <A-L> <C-w>l
+" creating and moving the splits
+nnoremap <leader>sv :vsplit<CR>
+nnoremap <leader>ss :split<CR>
+nnoremap <leader>sx <C-w>x
 " moving around tabs
 nnoremap <F2> gT
 nnoremap <F3> gt
@@ -260,7 +264,7 @@ nnoremap <leader>mpo :MarkdownPreview<CR>
 nnoremap <leader>mpc :MarkdownPreviewStop<CR>
 nnoremap <leader>mpt :MarkdownPreviewToggle<CR>
 " take first spellingfix
-nnoremap <leader>s 1z=
+nnoremap <leader>z 1z=
 nnoremap <leader>mh  :HeaderDecrease<CR>
 nnoremap <leader>ml  :HeaderIncrease<CR>
 xnoremap <leader>mh  :HeaderDecrease<CR>

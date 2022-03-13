@@ -65,7 +65,7 @@ whichkey.register ({
             h = "merge-conflict pick left",
             l = "merge-conflict pick right"
         },
-        s = "quick spellfix",
+        z = "quick spellfix",
         t = "tabular cmd",
         h = {
             name = "+gitgutter"
@@ -111,6 +111,12 @@ whichkey.register ({
             t = "toggle tagbar",
             o = "open tagbar",
             c = "close tagbar"
+        },
+        s = {
+            name = "+split",
+            v = "open vertical split",
+            s = "open horizontal split",
+            x = "swap splits"
         }
     }
 }, {mode = "n"})
