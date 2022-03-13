@@ -7,11 +7,15 @@
   * [Wakatime](#wakatime)
   * [Node](#node)
   * [Python3](#python3)
-  * [Tag bar](#tag-bar)
+  * [Tagbar](#tagbar)
   * [Git](#git)
   * [Neoclip](#neoclip)
   * [Other stuff](#other-stuff)
 * [Known Problems](#known-problems)
+  * [Vimplug not running commands](#vimplug-not-running-commands)
+    * [Fzf extension for telescope](#fzf-extension-for-telescope)
+    * [Markdown previewer](#markdown-previewer)
+  * [Cause](#cause)
 * [All plugins](#all-plugins)
 * [Minor annoyances to fix](#minor-annoyances-to-fix)
 * [Maybelookats](#maybelookats)
@@ -55,6 +59,7 @@ Fill in your [API key](https://wakatime.com/settings/api-key) when the plugin as
 ### Node
 ```sh
 sudo apt install npm
+sudo npm install -g yarn
 sudo npm cache clean -f
 sudo npm install -g n
 sudo n stable
