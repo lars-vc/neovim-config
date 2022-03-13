@@ -83,10 +83,7 @@ sudo apt install sqlite3 libsqlite3-dev
 ```
 
 ### Treesitter
-Need to install languages manually currently maybe also need a dependency `libstdc++`
-```
-:TSInstall lang
-```
+maybe need a dependency `libstdc++`
 
 ### Other stuff
 ```

@@ -120,8 +120,6 @@ Plug 'jistr/vim-nerdtree-tabs'
 Plug 'ThePrimeagen/vim-be-good'
 " --TagBar--
 Plug 'preservim/tagbar'
-" --Kotlin--
-Plug 'udalov/kotlin-vim'
 " --WhichKey--
 Plug 'folke/which-key.nvim'
 " --Aligning text--
