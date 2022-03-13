@@ -105,6 +105,12 @@ whichkey.register ({
             x = "save all and quit nvim",
             t = "save all and close tab",
             q = "quit nvim"
+        },
+        b = {
+            name = "+tagbar",
+            t = "toggle tagbar",
+            o = "open tagbar",
+            c = "close tagbar"
         }
     }
 }, {mode = "n"})

@@ -47,10 +47,10 @@ inoremap <A-j> <Down>
 inoremap <A-k> <Up>
 inoremap <A-l> <Right>
 " moving around windows
-map <A-H> <C-w>h
-map <A-J> <C-w>j
-map <A-K> <C-w>k
-map <A-L> <C-w>l
+nnoremap <A-H> <C-w>h
+nnoremap <A-J> <C-w>j
+nnoremap <A-K> <C-w>k
+nnoremap <A-L> <C-w>l
 " moving around tabs
 nnoremap <F2> gT
 nnoremap <F3> gt
@@ -198,7 +198,7 @@ function! s:show_documentation()
   endif
 endfunction
 " Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
+inoremap <silent><expr> <C-space> coc#refresh()
 " Applying codeAction to the selected region.
 " Example: `<leader>aap` for current paragraph
 xmap <leader>ca  <Plug>(coc-codeaction-selected)
@@ -242,9 +242,9 @@ nmap <leader>db <Plug>VimspectorBreakpoints
 nmap <leader>dg <Plug>VimspectorGoToCurrentLine
 let g:vimspector_install_gadgets = ['debugpy', 'vscode-cpptools', 'CodeLLDB', 'vscode-node-debug2']
 " for normal mode - the word under the cursor
-nmap <Leader>di <Plug>VimspectorBalloonEval
+nmap <leader>di <Plug>VimspectorBalloonEval
 " for visual mode, the visually selected text
-xmap <Leader>di <Plug>VimspectorBalloonEval
+xmap <leader>di <Plug>VimspectorBalloonEval
 "\\\\\\\\\\\\\\\\\\\\\\\\__________/////////////////////////
 
 "///////////////////////Vim-fugitive\\\\\\\\\\\\\\\\\\\\\\\\
@@ -294,6 +294,9 @@ set conceallevel=3
 au FileType perl set filetype=prolog
 " TagBar
 nnoremap <F8> :TagbarToggle<CR>
+nnoremap <leader>bt :TagbarToggle<CR>
+nnoremap <leader>bo :TagbarOpen<CR>
+nnoremap <leader>bc :TagbarClose<CR>
 let g:tagbar_map_nexttag = '<C-j>'
 let g:tagbar_map_prevtag = '<C-k>'
 "\\\\\\\\\\\\\\\\\\\\\\\\\\_____////////////////////////////

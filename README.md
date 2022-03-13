@@ -89,7 +89,19 @@ sudo apt install ripgrep
 ```
 
 ## Known Problems
-On different pc fzf extension for telescope doesn't work, fix is to comment that part out.
+
+### fzf
+On different pc fzf extension for telescope doesn't work, fix is:
+```shell
+cd plugged/telescope-fzf-native.nvim
+make
+```
+
+### cause
+If you get weird errors while typing cause just rm the plugged directory and do
+```
+:PlugInstall
+```
 
 ## All plugins
 
