@@ -93,6 +93,7 @@ whichkey.register ({
             o = "open mirror tree",
             c = "close tree",
             t = "toggle mirror tree",
+            f = "locate file in tree",
             a = {
                 name = "+alltabs",
                 o = "open all trees",

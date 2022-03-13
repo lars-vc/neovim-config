@@ -159,6 +159,7 @@ autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
 nnoremap <leader>nt  :NERDTreeMirrorToggle<CR>
 nnoremap <leader>nc  :NERDTreeClose<CR>
 nnoremap <leader>no  :NERDTreeMirrorOpen<CR>
+nnoremap <leader>nf  :NERDTreeFind<CR>
 nnoremap <leader>nat :NERDTreeTabsToggle<CR>
 nnoremap <leader>nac :NERDTreeTabsClose<CR>
 nnoremap <leader>nao :NERDTreeTabsOpen<CR>
