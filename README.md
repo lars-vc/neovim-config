@@ -29,7 +29,7 @@ sudo apt update
 sudo apt upgrade
 ```
 
-Then add the config by cloning in ~/.config/nvim
+Then add the config by cloning in `~/.config/nvim`:
 ```
 mkdir -p ~/.config/nvim/
 cd ~/.config/nvim/
@@ -39,19 +39,21 @@ Finally run nvim, you will get a lot of errors on startup but this is normal! Ru
 ```
 :PlugInstall
 ```
-in NeoVim, then close and relaunch
+in NeoVim, then close and relaunch.
+
+Now you are all setup inside of neovim. However some plugins might still not function properly due to them having some dependencies, see below to fix this.
 
 ## Dependencies
 
 ### Font
-[DejaVuSansMono Nerd Font Mono](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/DejaVuSansMono/Regular/complete)
-Any Nerd Font should probably work
+[DejaVuSansMono Nerd Font Mono](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/DejaVuSansMono/Regular/complete),
+Any Nerd Font should probably work.
 
 ### Wakatime
-Fill in your [API key](https://wakatime.com/settings/api-key) when the plugin asks for it
+Fill in your [API key](https://wakatime.com/settings/api-key) when the plugin asks for it.
 
 ### Node
-```
+```sh
 sudo apt install npm
 sudo npm cache clean -f
 sudo npm install -g n
@@ -59,17 +61,18 @@ sudo n stable
 ```
 
 ### Python3
-```
+```sh
 sudo apt install python3
 sudo apt install python3-pip
 ```
 
-### Tag bar
-```
+### Tagbar
+```sh
 sudo apt install exuberant-ctags
 ```
+
 ### Git
-```
+```sh
 curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
 sudo apt update
@@ -78,36 +81,39 @@ sudo apt install gh
 also setup `gh auth`
 
 ### Neoclip
-```
+```sh
 sudo apt install sqlite3 libsqlite3-dev
 ```
 
-### Treesitter
-maybe need a dependency `libstdc++`
-
 ### Other stuff
-```
+```sh
 pip install ropevim
 sudo apt install ripgrep
 ```
 
 ## Known Problems
 
-### fzf
-On different pc fzf extension for telescope doesn't work, fix is:
-```shell
+### Vimplug not running commands
+run the commands given as argument to vimplug (the ones after 'do' : ...).
+
+#### Fzf extension for telescope
+```sh
 cd plugged/telescope-fzf-native.nvim
 make
 ```
-### vimplug not running commands
-run the commands given as argument to vimplug
 
-### cause
-If you get weird errors while typing cause just rm the plugged directory and do
+#### Markdown previewer
+```sh
+cd plugged/markdown-preview.nvim/app
+yarn install
 ```
+
+### Cause
+If you get weird errors while typing cause just remove the `plugged/` directory and do
+```viml
 :PlugInstall
 ```
-
+inside neovim.
 
 ## All plugins
 
