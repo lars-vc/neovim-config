@@ -99,12 +99,15 @@ On different pc fzf extension for telescope doesn't work, fix is:
 cd plugged/telescope-fzf-native.nvim
 make
 ```
+### vimplug not running commands
+run the commands given as argument to vimplug
 
 ### cause
 If you get weird errors while typing cause just rm the plugged directory and do
 ```
 :PlugInstall
 ```
+
 
 ## All plugins
 
@@ -133,9 +136,8 @@ If you get weird errors while typing cause just rm the plugged directory and do
     * [Repeating actions](https://github.com/tpope/vim-repeat/)
 * [Visual clipboard](https://github/AckslD/nvim-neoclip.lua/)
     * [Persisting clipboard](https://github/tami5/sqlite.lua/)
-* [Key practise](https://github/ThePrimeagen/vim-be-good/)
+* [Vim practise](https://github/ThePrimeagen/vim-be-good/)
 * [Tag bar](https://github/preservim/tagbar/)
-* [Kotlin syntax highlighting](https://github/udalov/kotlin-vim/)
 * [Which key](https://github/folke/which-key.nvim/)
 * [Tabular](https://github/godlygeek/tabular/)
 * [Markdown additions](https://github/preservim/vim-markdown/)
