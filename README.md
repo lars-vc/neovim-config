@@ -41,7 +41,7 @@ git clone https://github.com/lars-vc/neovim-config .
 ```
 Finally run nvim, you will get a lot of errors on startup but this is normal! Run:
 ```
-:PlugInstall
+:PlugInstall!
 ```
 in NeoVim, then close and relaunch.
 
