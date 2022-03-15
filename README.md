@@ -93,6 +93,7 @@ sudo apt install sqlite3 libsqlite3-dev
 ```sh
 pip install ropevim
 sudo apt install ripgrep
+sudo apt install wdutch
 ```
 
 ## Known Problems

@@ -212,7 +212,7 @@ nmap <leader>cf  <Plug>(coc-fix-current)
 " Run the Code Lens action on the current line.
 nmap <leader>cl  <Plug>(coc-codelens-action)
 " Extensions
-let g:coc_global_extensions = ["coc-clangd", "coc-html", "coc-java", "coc-json", "coc-kotlin", "coc-pyright", "coc-rls", "coc-tsserver"]
+let g:coc_global_extensions = ["coc-clangd", "coc-html", "coc-java", "coc-json", "coc-kotlin", "coc-pyright", "coc-rls", "coc-tsserver", "coc-dictionary"]
 "\\\\\\\\\\\\\\\\\\\\\\\\\\\___/////////////////////////////
 
 "/////////////////////////Telescope\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -284,6 +284,8 @@ let g:vim_markdown_folding_style_pythonic = 1
 let g:vim_markdown_follow_anchor = 1
 let g:vim_markdown_strikethrough = 1
 autocmd FileType markdown setlocal spell
+autocmd FileType markdown setlocal dictionary+=/usr/share/dict/words
+autocmd FileType markdown setlocal dictionary+=/usr/share/dict/dutch
 "\\\\\\\\\\\\\\\\\\\\\\\\\________//////////////////////////
 
 "//////////////////////////Other\\\\\\\\\\\\\\\\\\\\\\\\\\\\
