@@ -58,6 +58,9 @@ nnoremap <leader>sx <C-w>x
 " moving around tabs
 nnoremap <F2> gT
 nnoremap <F3> gt
+" searching centers the line
+nnoremap n nzzzv
+nnoremap N Nzzzv
 " closing stuff
 nnoremap <leader>xt :wa<cr>:tabclose<cr>
 nnoremap <leader>xx :wa<cr>:qa<cr>
