@@ -162,3 +162,4 @@ inside neovim.
 * [himalaya](https://github.com/soywod/himalaya)
 * [agenda](https://github.com/dhruvasagar/vim-dotoo)
 * [org-mode](https://github.com/vimoutliner/vimoutliner)
+* [harpoon](https://github.com/ThePrimeagen/harpoon)
