@@ -1,6 +1,5 @@
 # NeoVim configfiles
 
-## TOC
 * [Install](#install)
 * [Dependencies](#dependencies)
   * [Font](#font)

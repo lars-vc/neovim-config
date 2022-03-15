@@ -36,6 +36,6 @@ telescope.setup {
 telescope.load_extension('fzf')
 
 require('neoclip').setup {
-    enable_persistent_history = true
+    --enable_persistent_history = true
 }
 
