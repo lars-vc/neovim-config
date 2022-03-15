@@ -66,6 +66,9 @@ nnoremap <leader>xt :wa<cr>:tabclose<cr>
 nnoremap <leader>xx :wa<cr>:qa<cr>
 nnoremap <leader>xq :qa!<cr>
 :command Cheat tabedit ~/.config/nvim/cheatsheet.vim
+" undo breakpoints
+inoremap . .<C-g>u
+inoremap , ,<C-g>u
 "===========================================================
 "--------------------------Plugins--------------------------
 "===========================================================
