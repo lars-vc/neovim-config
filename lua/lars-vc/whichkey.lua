@@ -22,9 +22,9 @@ whichkey.register ({
     ["<leader>"] = {
         f = {
             name = "+telescope",
-            f = "find files",
-            b = "find buffer",
-            c = "search in buffer",
+            f = "find a file",
+            b = "find an open buffer",
+            c = "search in current buffer",
             g = "search in all files",
             h = "help tags",
             n = "neoclip",
