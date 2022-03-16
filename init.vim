@@ -238,9 +238,22 @@ nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fc <cmd>Telescope current_buffer_fuzzy_find<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <leader>fn <cmd>Telescope neoclip plus<cr><Esc>
 nnoremap <leader>fi <cmd>Telescope find_files cwd=~/.config/nvim<cr>
+nnoremap <leader>fp <cmd>Telescope planets<cr><esc>
+" help related
+nnoremap <leader>fhh <cmd>Telescope help_tags<cr>
+nnoremap <leader>fhc <cmd>Telescope command_history<cr>
+nnoremap <leader>fhs <cmd>Telescope search_history<cr>
+nnoremap <leader>fhm <cmd>Telescope man_pages<cr>
+nnoremap <leader>fhk <cmd>Telescope keymaps<cr>
+nnoremap <leader>fho <cmd>Telescope vim_options<cr>
+nnoremap <leader>fhr <cmd>Telescope reloader<cr>
+nnoremap <leader>fhb <cmd>Telescope builtin<cr>
+" Git related stuff
+nnoremap <leader>gfc <cmd>Telescope git_commits<cr><esc>
+nnoremap <leader>gfb <cmd>Telescope git_bcommits<cr><esc>
+nnoremap <leader>gb <cmd>Telescope git_branches<cr>
 "\\\\\\\\\\\\\\\\\\\\\\\\\_________/////////////////////////
 
 "////////////////////////Vimspector\\\\\\\\\\\\\\\\\\\\\\\\\

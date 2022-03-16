@@ -26,9 +26,20 @@ whichkey.register ({
             b = "find an open buffer",
             c = "search in current buffer",
             g = "search in all files",
-            h = "help tags",
             n = "neoclip",
-            i = "find in config"
+            i = "find in config",
+            p = "view the planets",
+            h = {
+                name = "+help",
+                h = "help tags",
+                c = "command history",
+                s = "search history",
+                m = "man pages",
+                k = "keymaps",
+                o = "vim options",
+                r = "lua module reloader",
+                b = "builtin pickers",
+            }
         },
         c = {
             name = "+coc",
@@ -63,7 +74,13 @@ whichkey.register ({
             g = "git cmd",
             p = "push",
             h = "merge-conflict pick left",
-            l = "merge-conflict pick right"
+            l = "merge-conflict pick right",
+            b = "see branches",
+            f = {
+                name = "+commitlist",
+                c = "list all commits",
+                b = "list open buffer commits",
+            }
         },
         z = "quick spellfix",
         t = "tabular cmd",
