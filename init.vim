@@ -65,10 +65,21 @@ nnoremap N Nzzzv
 nnoremap <leader>xt :wa<cr>:tabclose<cr>
 nnoremap <leader>xx :wa<cr>:qa<cr>
 nnoremap <leader>xq :qa!<cr>
+" cheatsheet
 :command Cheat tabedit ~/.config/nvim/cheatsheet.vim
 " undo breakpoints
 inoremap . .<C-g>u
 inoremap , ,<C-g>u
+" moving text
+nnoremap <A-k> :m .-2<CR>
+nnoremap <A-j> :m .+1<CR>
+vnoremap <A-j> :m '>+1<CR>gv
+vnoremap <A-k> :m '<-2<CR>gv
+nnoremap <A-l> >>
+nnoremap <A-h> <<
+" doesnt work
+vnoremap <A-h> :<<CR>gv
+vnoremap <A-l> :><CR>gv
 "===========================================================
 "--------------------------Plugins--------------------------
 "===========================================================
