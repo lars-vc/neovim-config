@@ -77,7 +77,6 @@ vnoremap <A-j> :m '>+1<CR>gv
 vnoremap <A-k> :m '<-2<CR>gv
 nnoremap <A-l> >>
 nnoremap <A-h> <<
-" doesnt work
 vnoremap <A-h> :<<CR>gv
 vnoremap <A-l> :><CR>gv
 "===========================================================
@@ -147,7 +146,9 @@ Plug 'folke/which-key.nvim'
 Plug 'godlygeek/tabular'
 " --Markdown
 Plug 'preservim/vim-markdown'
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+Plug 'iamcco/markdown-preview.nvim', {'do': 'cd app && yarn install'}
+" --Sniprun--
+Plug 'michaelb/sniprun', {'do': 'bash install.sh'}
 call plug#end()
 " load lua files
 lua require('lars-vc')
@@ -303,6 +304,13 @@ let g:vim_markdown_strikethrough = 1
 autocmd FileType markdown setlocal spell
 autocmd FileType markdown setlocal dictionary+=/usr/share/dict/words
 autocmd FileType markdown setlocal dictionary+=/usr/share/dict/dutch
+"\\\\\\\\\\\\\\\\\\\\\\\\\________//////////////////////////
+
+"//////////////////////////Sniprun\\\\\\\\\\\\\\\\\\\\\\\\\\
+nnoremap <leader>rr :SnipRun<CR>
+nnoremap <leader>rx :SnipReset<CR>
+nnoremap <leader>rc :SnipClose<CR>
+xnoremap <leader>rr :SnipRun<CR>
 "\\\\\\\\\\\\\\\\\\\\\\\\\________//////////////////////////
 
 "//////////////////////////Other\\\\\\\\\\\\\\\\\\\\\\\\\\\\

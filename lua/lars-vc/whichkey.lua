@@ -118,6 +118,12 @@ whichkey.register ({
             v = "open vertical split",
             s = "open horizontal split",
             x = "swap splits"
+        },
+        r = {
+            name = "+sniprun",
+            r = "run line",
+            x = "kill sniprun",
+            c = "clear sniprun"
         }
     }
 }, {mode = "n"})
@@ -139,6 +145,10 @@ whichkey.register({
             name = "+markdown",
             h = "header decrease",
             l = "header increase",
+        },
+        r = {
+            name = "+sniprun",
+            r = "run block"
         }
     }
 }, {mode = "v"})
