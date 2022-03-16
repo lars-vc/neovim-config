@@ -85,8 +85,12 @@ whichkey.register ({
         z = "quick spellfix",
         t = "tabular cmd",
         h = {
-            name = "+gitgutter"
+            name = "+harpoon",
+            h = "add file to harpoon",
         },
+        ["<space>"] = "harpoon menu",
+        j = "harpoon next",
+        k = "harpoon prev",
         m = {
             name = "+markdown",
             h = "header decrease",
@@ -142,6 +146,16 @@ whichkey.register ({
             x = "kill sniprun",
             c = "clear sniprun"
         }
+    },
+    [","] = {
+        f = "harpoon item 1",
+        d = "harpoon item 2",
+        s = "harpoon item 3",
+        q = "harpoon item 4",
+        j = "harpoon item 4",
+        k = "harpoon item 5",
+        l = "harpoon item 6",
+        m = "harpoon item 7",
     }
 }, {mode = "n"})
 

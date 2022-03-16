@@ -65,7 +65,7 @@ nnoremap N Nzzzv
 nnoremap <leader>xt :wa<cr>:tabclose<cr>
 nnoremap <leader>xx :wa<cr>:qa<cr>
 nnoremap <leader>xq :qa!<cr>
-" cheatsheet
+" cheatsheet (outdated)
 :command Cheat tabedit ~/.config/nvim/cheatsheet.vim
 " undo breakpoints
 inoremap . .<C-g>u
@@ -149,6 +149,10 @@ Plug 'preservim/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', {'do': 'cd app && yarn install'}
 " --Sniprun--
 Plug 'michaelb/sniprun', {'do': 'bash install.sh'}
+" --Harpoon--
+Plug 'ThePrimeagen/harpoon'
+" --Snippets--
+Plug 'rafamadriz/friendly-snippets'
 call plug#end()
 " load lua files
 lua require('lars-vc')
@@ -186,8 +190,6 @@ nnoremap <leader>nao :NERDTreeTabsOpen<CR>
 
 "/////////////////////////Floaterm\\\\\\\\\\\\\\\\\\\\\\\\\\
 " Save all tabs when opening terminal
-nnoremap   <silent>   <F12>   :wa<CR>:FloatermToggle<CR>
-tnoremap   <silent>   <F12>   <C-\><C-n>:FloatermToggle<CR>
 nnoremap   <silent>   ²       :wa<CR>:FloatermToggle<CR>
 tnoremap   <silent>   ²       <C-\><C-n>:FloatermToggle<CR>
 let g:floaterm_height=0.95
@@ -230,7 +232,7 @@ nmap <leader>cf  <Plug>(coc-fix-current)
 " Run the Code Lens action on the current line.
 nmap <leader>cl  <Plug>(coc-codelens-action)
 " Extensions
-let g:coc_global_extensions = ["coc-clangd", "coc-html", "coc-java", "coc-json", "coc-kotlin", "coc-pyright", "coc-rls", "coc-tsserver", "coc-dictionary"]
+let g:coc_global_extensions = ["coc-clangd", "coc-html", "coc-java", "coc-json", "coc-kotlin", "coc-pyright", "coc-rls", "coc-tsserver", "coc-dictionary", "coc-snippets"]
 "\\\\\\\\\\\\\\\\\\\\\\\\\\\___/////////////////////////////
 
 "/////////////////////////Telescope\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -250,7 +252,7 @@ nnoremap <leader>fhk <cmd>Telescope keymaps<cr>
 nnoremap <leader>fho <cmd>Telescope vim_options<cr>
 nnoremap <leader>fhr <cmd>Telescope reloader<cr>
 nnoremap <leader>fhb <cmd>Telescope builtin<cr>
-" Git related stuff
+" git related stuff
 nnoremap <leader>gfc <cmd>Telescope git_commits<cr><esc>
 nnoremap <leader>gfb <cmd>Telescope git_bcommits<cr><esc>
 nnoremap <leader>gb <cmd>Telescope git_branches<cr>
@@ -324,6 +326,22 @@ nnoremap <leader>rr :SnipRun<CR>
 nnoremap <leader>rx :SnipReset<CR>
 nnoremap <leader>rc :SnipClose<CR>
 xnoremap <leader>rr :SnipRun<CR>
+"\\\\\\\\\\\\\\\\\\\\\\\\\________//////////////////////////
+
+"//////////////////////////Harpoon\\\\\\\\\\\\\\\\\\\\\\\\\\
+nnoremap <leader><leader> :lua require("harpoon.ui").toggle_quick_menu()<CR>
+nnoremap <leader>j :lua require("harpoon.ui").nav_next()<CR>
+nnoremap <leader>k :lua require("harpoon.ui").nav_prev()<CR>
+nnoremap <leader>hh :lua require("harpoon.mark").add_file()<CR>
+nnoremap , <nop>
+nnoremap ,f :lua require("harpoon.ui").nav_file(1)<CR>
+nnoremap ,d :lua require("harpoon.ui").nav_file(2)<CR>
+nnoremap ,s :lua require("harpoon.ui").nav_file(3)<CR>
+nnoremap ,q :lua require("harpoon.ui").nav_file(4)<CR>
+nnoremap ,j :lua require("harpoon.ui").nav_file(5)<CR>
+nnoremap ,k :lua require("harpoon.ui").nav_file(6)<CR>
+nnoremap ,l :lua require("harpoon.ui").nav_file(7)<CR>
+nnoremap ,m :lua require("harpoon.ui").nav_file(8)<CR>
 "\\\\\\\\\\\\\\\\\\\\\\\\\________//////////////////////////
 
 "//////////////////////////Other\\\\\\\\\\\\\\\\\\\\\\\\\\\\

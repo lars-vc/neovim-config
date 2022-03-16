@@ -13,12 +13,12 @@ telescope.setup {
     defaults = {
         layout_config = {
             horizontal = {
-                height= 0.95,
-                width= 0.95,
+                height= 0.8,
+                width= 0.8,
             },
             center = {
-                height= 0.95,
-                width= 0.95,
+                height= 0.8,
+                width= 0.8,
             }
         },
         mappings = {
@@ -34,6 +34,7 @@ telescope.setup {
 }
 
 telescope.load_extension('fzf')
+telescope.load_extension('harpoon')
 
 require('neoclip').setup {
     --enable_persistent_history = true
