@@ -294,6 +294,7 @@ nnoremap <leader>gl :diffget //3<CR>
 "\\\\\\\\\\\\\\\\\\\\\\\____________////////////////////////
 
 "/////////////////////////Markdown\\\\\\\\\\\\\\\\\\\\\\\\\\
+" need to be in the markdown buffer for these to work
 nnoremap <leader>mpo :MarkdownPreview<CR>
 nnoremap <leader>mpc :MarkdownPreviewStop<CR>
 nnoremap <leader>mpt :MarkdownPreviewToggle<CR>
@@ -333,6 +334,7 @@ nnoremap <leader><leader> :lua require("harpoon.ui").toggle_quick_menu()<CR>
 nnoremap <leader>j :lua require("harpoon.ui").nav_next()<CR>
 nnoremap <leader>k :lua require("harpoon.ui").nav_prev()<CR>
 nnoremap , <nop>
+nnoremap ,, :lua require("harpoon.ui").toggle_quick_menu()<CR>
 nnoremap ,a :lua require("harpoon.mark").add_file()<CR>
 nnoremap ,f :lua require("harpoon.ui").nav_file(1)<CR>
 nnoremap ,d :lua require("harpoon.ui").nav_file(2)<CR>
