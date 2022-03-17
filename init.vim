@@ -114,7 +114,7 @@ Plug 'voldikss/vim-floaterm'
 " --Auto pairs--
 Plug 'jiangmiao/auto-pairs'
 " Plug 'LunarWatcher/auto-pairs'
-" Plug 'tpope/vim-surround'
+Plug 'tpope/vim-surround'
 " --Treeshitter--
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " --Commenting (gcc)--
