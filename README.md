@@ -153,6 +153,9 @@ inside neovim.
 * [Tabular](https://github/godlygeek/tabular/)
 * [Markdown additions](https://github/preservim/vim-markdown/)
     * [Markdown preview](https://github/iamcco/markdown-preview.nvim/)
+* [Sniprun](https://github.com/michaelb/sniprun)
+* [Harpoon](https://github.com/ThePrimeagen/harpoon)
+* [Snippets](https://github.com/rafamadriz/friendly-snippets)
 
 ## Minor annoyances to fix
 * Floaterm cutting off output
