@@ -31,6 +31,10 @@ git clone https://github.com/lars-vc/neovim-config .
 chmod +x install.sh
 ./install.sh
 ```
+Then open `nvim` and do:
+```
+:PlugInstall!
+```
 
 ### Manual install
 First install [NeoVim](https://github.com/neovim/neovim), this can be done like so:
