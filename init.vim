@@ -40,7 +40,6 @@ let mapleader = " "
 inoremap <expr> <C-j> pumvisible() ? "\<C-N>" : "\<C-j>"
 inoremap <expr> <C-k> pumvisible() ? "\<C-P>" : "\<C-k>"
 inoremap <silent><expr> <Tab> pumvisible() ? coc#_select_confirm() : "\<Tab>"
-nnoremap <F1> <C-w>w
 " moving in insert mode
 inoremap <A-h> <Left>
 inoremap <A-j> <Down>
@@ -55,9 +54,6 @@ nnoremap <A-L> <C-w>l
 nnoremap <leader>sv :vsplit<CR>
 nnoremap <leader>ss :split<CR>
 nnoremap <leader>sx <C-w>x
-" moving around tabs
-nnoremap <F2> gT
-nnoremap <F3> gt
 " searching centers the line
 nnoremap n nzzzv
 nnoremap N Nzzzv
@@ -79,6 +75,11 @@ nnoremap <A-l> >>
 nnoremap <A-h> <<
 vnoremap <A-h> :<<CR>gv
 vnoremap <A-l> :><CR>gv
+" moving around in command mode
+cnoremap <A-h> <Left>
+cnoremap <A-j> <Down>
+cnoremap <A-k> <Up>
+cnoremap <A-l> <Right>
 "===========================================================
 "--------------------------Plugins--------------------------
 "===========================================================
@@ -153,6 +154,9 @@ Plug 'michaelb/sniprun', {'do': 'bash install.sh'}
 Plug 'ThePrimeagen/harpoon'
 " --Snippets--
 Plug 'rafamadriz/friendly-snippets'
+" --IndentGuides--
+" Plug 'Yggdroot/indentLine'
+Plug 'lukas-reineke/indent-blankline.nvim'
 call plug#end()
 " load lua files
 lua require('lars-vc')
@@ -346,6 +350,16 @@ nnoremap ,l :lua require("harpoon.ui").nav_file(7)<CR>
 nnoremap ,m :lua require("harpoon.ui").nav_file(8)<CR>
 "\\\\\\\\\\\\\\\\\\\\\\\\\________//////////////////////////
 
+"//////////////////////////TagBar\\\\\\\\\\\\\\\\\\\\\\\\\\\
+nnoremap <F8> :TagbarToggle<CR>
+nnoremap <leader>bt :TagbarToggle<CR>
+nnoremap <leader>bo :TagbarOpen<CR>
+nnoremap <leader>bc :TagbarClose<CR>
+let g:tagbar_map_nexttag = '<C-j>'
+let g:tagbar_map_prevtag = '<C-k>'
+let g:tagbar_map_showproto = "m"
+"\\\\\\\\\\\\\\\\\\\\\\\\\_______///////////////////////////
+
 "//////////////////////////Other\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 " Autopair
 let g:AutoPairsCenterLine = 0
@@ -355,13 +369,6 @@ let g:AutoPairsCenterLine = 0
 set conceallevel=3
 " Prolog
 au FileType perl set filetype=prolog
-" TagBar
-nnoremap <F8> :TagbarToggle<CR>
-nnoremap <leader>bt :TagbarToggle<CR>
-nnoremap <leader>bo :TagbarOpen<CR>
-nnoremap <leader>bc :TagbarClose<CR>
-let g:tagbar_map_nexttag = '<C-j>'
-let g:tagbar_map_prevtag = '<C-k>'
 " highlight yanked region
 autocmd TextYankPost * silent! lua vim.highlight.on_yank {higroup=(vim.fn['hlexists']('HighlightedyankRegion') > 0 and 'HighlightedyankRegion' or 'IncSearch'), timeout=125}
 "\\\\\\\\\\\\\\\\\\\\\\\\\\_____////////////////////////////
