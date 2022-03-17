@@ -20,6 +20,19 @@
 * [Maybelookats](#maybelookats)
 
 ## Install
+### Automatic install
+!Beware, not tested yet!
+
+Run:
+```sh
+mkdir -p ~/.config/nvim/
+cd ~/.config/nvim/
+git clone https://github.com/lars-vc/neovim-config .
+chmod +x install.sh
+./install.sh
+```
+
+### Manual install
 First install [NeoVim](https://github.com/neovim/neovim), this can be done like so:
 ```
 sudo apt install neovim
