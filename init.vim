@@ -332,8 +332,8 @@ xnoremap <leader>rr :SnipRun<CR>
 nnoremap <leader><leader> :lua require("harpoon.ui").toggle_quick_menu()<CR>
 nnoremap <leader>j :lua require("harpoon.ui").nav_next()<CR>
 nnoremap <leader>k :lua require("harpoon.ui").nav_prev()<CR>
-nnoremap <leader>hh :lua require("harpoon.mark").add_file()<CR>
 nnoremap , <nop>
+nnoremap ,a :lua require("harpoon.mark").add_file()<CR>
 nnoremap ,f :lua require("harpoon.ui").nav_file(1)<CR>
 nnoremap ,d :lua require("harpoon.ui").nav_file(2)<CR>
 nnoremap ,s :lua require("harpoon.ui").nav_file(3)<CR>

@@ -5,11 +5,11 @@ whichkey.setup {
         spelling = {
             enabled = true,
             suggestions = 20,
+        },
+        presets = {
+            operators = false,
+            motions = false,
         }
-    },
-    presets = {
-      operators = false, -- adds help for operators like d, y, ... and registers them for motion / text object completion
-      motions = false, -- adds help for motions
     },
     key_labels = {
         ["<space>"] = "SPC",
@@ -85,8 +85,7 @@ whichkey.register ({
         z = "quick spellfix",
         t = "tabular cmd",
         h = {
-            name = "+harpoon",
-            h = "add file to harpoon",
+            name = "+gitgutter",
         },
         ["<space>"] = "harpoon menu",
         j = "harpoon next",
@@ -156,6 +155,7 @@ whichkey.register ({
         k = "harpoon item 5",
         l = "harpoon item 6",
         m = "harpoon item 7",
+        a = "add file to harpoon"
     }
 }, {mode = "n"})
 
