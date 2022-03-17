@@ -57,7 +57,7 @@ Finally run nvim, you will get a lot of errors on startup but this is normal! Ru
 ```
 in NeoVim, then close and relaunch.
 
-Now you are all setup inside of neovim. However some plugins might still not function properly due to them having some dependencies, see below to fix this.
+Now you are all setup inside of NeoVim. However some plugins might still not function properly due to them having some dependencies, see below to fix this.
 
 ## Dependencies
 
