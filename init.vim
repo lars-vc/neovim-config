@@ -362,4 +362,6 @@ nnoremap <leader>bo :TagbarOpen<CR>
 nnoremap <leader>bc :TagbarClose<CR>
 let g:tagbar_map_nexttag = '<C-j>'
 let g:tagbar_map_prevtag = '<C-k>'
+" highlight yanked region
+autocmd TextYankPost * silent! lua vim.highlight.on_yank {higroup=(vim.fn['hlexists']('HighlightedyankRegion') > 0 and 'HighlightedyankRegion' or 'IncSearch'), timeout=125}
 "\\\\\\\\\\\\\\\\\\\\\\\\\\_____////////////////////////////

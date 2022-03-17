@@ -11,16 +11,16 @@ telescope.setup {
         },
     },
     defaults = {
-        layout_config = {
-            horizontal = {
-                height= 0.8,
-                width= 0.8,
-            },
-            center = {
-                height= 0.8,
-                width= 0.8,
-            }
-        },
+        -- layout_config = {
+        --     horizontal = {
+        --         height= 0.8,
+        --         width= 0.8,
+        --     },
+        --     center = {
+        --         height= 0.8,
+        --         width= 0.8,
+        --     }
+        -- },
         mappings = {
             i = {
                 ["<C-j>"] = "move_selection_next",
