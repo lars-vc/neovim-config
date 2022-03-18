@@ -84,9 +84,6 @@ whichkey.register ({
         },
         z = "quick spellfix",
         t = "tabular cmd",
-        h = {
-            name = "+gitgutter",
-        },
         ["<space>"] = "harpoon menu",
         j = "harpoon next",
         k = "harpoon prev",
@@ -168,9 +165,6 @@ whichkey.register({
         d = {
             name = "+vimspector",
             i = "balloon eval"
-        },
-        h = {
-            name = "+gitgutter",
         },
         m = {
             name = "+markdown",

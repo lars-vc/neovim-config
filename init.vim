@@ -121,7 +121,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " --Commenting (gcc)--
 Plug 'tpope/vim-commentary'
 " --Git stuff--
-Plug 'airblade/vim-gitgutter'
+" Plug 'airblade/vim-gitgutter'
 " --Wakatime--
 Plug 'wakatime/vim-wakatime'
 " --Debugger--
@@ -351,7 +351,6 @@ nnoremap ,m :lua require("harpoon.ui").nav_file(8)<CR>
 "\\\\\\\\\\\\\\\\\\\\\\\\\________//////////////////////////
 
 "//////////////////////////TagBar\\\\\\\\\\\\\\\\\\\\\\\\\\\
-nnoremap <F8> :TagbarToggle<CR>
 nnoremap <leader>bt :TagbarToggle<CR>
 nnoremap <leader>bo :TagbarOpen<CR>
 nnoremap <leader>bc :TagbarClose<CR>
@@ -364,7 +363,7 @@ let g:tagbar_map_showproto = "m"
 " Autopair
 let g:AutoPairsCenterLine = 0
 " Gitgutter
-:au VimEnter * :GitGutterSignsDisable
+" :au VimEnter * :GitGutterSignsDisable
 " Nerd tree icons
 set conceallevel=3
 " Prolog
