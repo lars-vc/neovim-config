@@ -1,3 +1,5 @@
+# OUTDATED IN FAVOR OF [DOTFILES](https://github.com/lars-vc/dotfiles)
+
 # NeoVim configfiles
 
 * [Install](#install)
